@@ -128,37 +128,34 @@ export const ChartViewport = forwardRef<ChartViewportHandle, Props>(function Cha
 
   const focusNode = useCallback((nodeId: string) => {
     const token = ++focusToken.current
+    // Một nhịp mượt: zoom trước, đo lại node, pan về 1/3 trái — không pan lần 2
     setSmooth(true)
     setZoom(FOCUS_ZOOM)
 
-    const panToThird = () => {
-      if (token !== focusToken.current) return
-      const shell = shellRef.current
-      const el = document.querySelector(
-        `[data-node-id="${CSS.escape(nodeId)}"]`,
-      ) as HTMLElement | null
-      if (!shell || !el) return
-
-      const shellRect = shell.getBoundingClientRect()
-      const nodeRect = el.getBoundingClientRect()
-      const nodeCx = nodeRect.left + nodeRect.width / 2
-      const nodeCy = nodeRect.top + nodeRect.height / 2
-      const targetX = shellRect.left + shellRect.width / 3
-      const targetY = shellRect.top + shellRect.height / 2
-
-      setOffset((prev) => ({
-        x: prev.x + (targetX - nodeCx),
-        y: prev.y + (targetY - nodeCy),
-      }))
-    }
-
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        panToThird()
-        window.setTimeout(panToThird, 280)
+        if (token !== focusToken.current) return
+        const shell = shellRef.current
+        const el = document.querySelector(
+          `[data-node-id="${CSS.escape(nodeId)}"]`,
+        ) as HTMLElement | null
+        if (!shell || !el) {
+          setSmooth(false)
+          return
+        }
+        const shellRect = shell.getBoundingClientRect()
+        const nodeRect = el.getBoundingClientRect()
+        const targetX = shellRect.left + shellRect.width / 3
+        const targetY = shellRect.top + shellRect.height / 2
+        const nodeCx = nodeRect.left + nodeRect.width / 2
+        const nodeCy = nodeRect.top + nodeRect.height / 2
+        setOffset((prev) => ({
+          x: prev.x + (targetX - nodeCx),
+          y: prev.y + (targetY - nodeCy),
+        }))
         window.setTimeout(() => {
           if (token === focusToken.current) setSmooth(false)
-        }, 360)
+        }, 260)
       })
     })
   }, [])

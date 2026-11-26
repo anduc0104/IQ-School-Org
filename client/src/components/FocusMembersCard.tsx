@@ -8,12 +8,10 @@ import { TagPill } from './TagPill'
 type Props = {
   node: OrgNode
   members: Employee[]
+  highlightMemberId?: string | null
+  highlightNonce?: number
   onOpenPanel: () => void
   onClose: () => void
-}
-
-function prefersReducedMotion() {
-  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
 function schoolLabel(m: Employee, schoolsById: Map<number, string>) {
@@ -24,25 +22,102 @@ function schoolLabel(m: Employee, schoolsById: Map<number, string>) {
   return names.join('/ ')
 }
 
-/**
- * Portal ra body (fixed) để không bị mờ/chặn click bởi node dimmed trong chart.
- * Neo theo getBoundingClientRect của node — cập nhật khi zoom/pan.
- */
-export function FocusMembersCard({ node, members, onOpenPanel, onClose }: Props) {
+const CARD_W = 380
+const CARD_H = 460
+const GAP = 40
+
+type Layout = {
+  top: number
+  left: number
+  below: boolean
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+}
+
+function computeLayout(anchor: DOMRect): Layout {
+  const narrow = window.innerWidth < 768
+  if (narrow) {
+    let top = anchor.bottom + GAP
+    let left = Math.min(
+      window.innerWidth - CARD_W - 12,
+      Math.max(12, anchor.left + anchor.width / 2 - CARD_W / 2),
+    )
+    if (top + CARD_H > window.innerHeight - 12) {
+      top = Math.max(12, anchor.top - CARD_H - GAP)
+    }
+    return {
+      top,
+      left,
+      below: true,
+      x1: anchor.left + anchor.width / 2,
+      y1: anchor.bottom,
+      x2: left + CARD_W / 2,
+      y2: top,
+    }
+  }
+
+  let top = Math.min(
+    window.innerHeight - CARD_H - 12,
+    Math.max(12, anchor.top + anchor.height / 2 - CARD_H / 2),
+  )
+  let left = anchor.right + GAP
+  if (left + CARD_W > window.innerWidth - 12) {
+    left = Math.max(12, anchor.left - CARD_W - GAP)
+  }
+  const toRight = left >= anchor.right - 4
+  return {
+    top,
+    left,
+    below: false,
+    x1: toRight ? anchor.right : anchor.left,
+    y1: anchor.top + anchor.height / 2,
+    x2: toRight ? left : left + CARD_W,
+    y2: top + Math.min(56, CARD_H / 2),
+  }
+}
+
+function sameLayout(a: Layout | null, b: Layout) {
+  if (!a) return false
+  return (
+    Math.abs(a.top - b.top) < 0.5 &&
+    Math.abs(a.left - b.left) < 0.5 &&
+    Math.abs(a.x1 - b.x1) < 0.5 &&
+    Math.abs(a.y1 - b.y1) < 0.5 &&
+    Math.abs(a.x2 - b.x2) < 0.5 &&
+    Math.abs(a.y2 - b.y2) < 0.5
+  )
+}
+
+/** Portal fixed — layout bằng React state (ổn định UI). Sync nhẹ khi zoom/pan. */
+export function FocusMembersCard({
+  node,
+  members,
+  highlightMemberId,
+  highlightNonce = 0,
+  onOpenPanel,
+  onClose,
+}: Props) {
   const { zoom, offset } = useChartView()
-  const cardRef = useRef<HTMLDivElement>(null)
-  const listRef = useRef<HTMLUListElement>(null)
   const [schools, setSchools] = useState<SourceSchool[]>([])
-  const [anchor, setAnchor] = useState<DOMRect | null>(null)
-  const [cardBox, setCardBox] = useState<DOMRect | null>(null)
+  const [layout, setLayout] = useState<Layout | null>(null)
+  const [activeHighlight, setActiveHighlight] = useState<string | null>(null)
+  const listRef = useRef<HTMLUListElement>(null)
   const color = node.color || '#0284C7'
-  const reduced = prefersReducedMotion()
-  const gap = 40
-  const cardW = 380
-  const cardH = 460
+  const syncGen = useRef(0)
 
   useEffect(() => {
-    api.getSchools().then(setSchools).catch(() => setSchools([]))
+    let cancelled = false
+    api
+      .getSchools()
+      .then((s) => {
+        if (!cancelled) setSchools(s)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   const schoolsById = useMemo(
@@ -50,138 +125,91 @@ export function FocusMembersCard({ node, members, onOpenPanel, onClose }: Props)
     [schools],
   )
 
-  const syncAnchor = () => {
-    const el = document.querySelector(`[data-node-id="${CSS.escape(node.id)}"]`) as HTMLElement | null
-    if (el) setAnchor(el.getBoundingClientRect())
+  const sync = () => {
+    const el = document.querySelector(
+      `[data-node-id="${CSS.escape(node.id)}"]`,
+    ) as HTMLElement | null
+    if (!el) return
+    const next = computeLayout(el.getBoundingClientRect())
+    setLayout((prev) => (sameLayout(prev, next) ? prev : next))
   }
 
   useLayoutEffect(() => {
-    syncAnchor()
-  }, [node.id, zoom, offset.x, offset.y, members.length])
+    sync()
+  }, [node.id, zoom, offset.x, offset.y])
 
+  // Trong lúc chart transition (~280ms), sync vài nhịp — không loop mỗi frame
   useEffect(() => {
-    let raf = 0
-    let alive = true
-    const tick = () => {
-      if (!alive) return
-      syncAnchor()
-      raf = window.requestAnimationFrame(tick)
-    }
-    raf = window.requestAnimationFrame(tick)
-    const onResize = () => syncAnchor()
+    const gen = ++syncGen.current
+    const times = [40, 120, 220, 320]
+    const timers = times.map((ms) =>
+      window.setTimeout(() => {
+        if (syncGen.current === gen) sync()
+      }, ms),
+    )
+    const onResize = () => sync()
     window.addEventListener('resize', onResize)
     return () => {
-      alive = false
-      window.cancelAnimationFrame(raf)
+      timers.forEach(clearTimeout)
       window.removeEventListener('resize', onResize)
     }
-  }, [node.id])
+  }, [node.id, zoom, offset.x, offset.y])
 
-  const isNarrow = typeof window !== 'undefined' && window.innerWidth < 768
-
-  const pos = useMemo(() => {
-    if (!anchor) return null
-    if (isNarrow) {
-      let top = anchor.bottom + gap
-      let left = Math.min(
-        window.innerWidth - cardW - 12,
-        Math.max(12, anchor.left + anchor.width / 2 - cardW / 2),
-      )
-      if (top + cardH > window.innerHeight - 12) {
-        top = Math.max(12, anchor.top - cardH - gap)
-      }
-      return { top, left, below: true }
-    }
-    let top = Math.min(
-      window.innerHeight - cardH - 12,
-      Math.max(12, anchor.top + anchor.height / 2 - cardH / 2),
+  // Scroll tới nhân viên được chọn từ sidebar
+  useEffect(() => {
+    if (!highlightMemberId || !layout) return
+    setActiveHighlight(highlightMemberId)
+    const timers = [80, 200, 360, 520].map((ms) =>
+      window.setTimeout(() => {
+        const el = listRef.current?.querySelector(
+          `[data-member-id="${CSS.escape(highlightMemberId)}"]`,
+        ) as HTMLElement | null
+        el?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      }, ms),
     )
-    let left = anchor.right + gap
-    if (left + cardW > window.innerWidth - 12) {
-      left = Math.max(12, anchor.left - cardW - gap)
+    const clear = window.setTimeout(() => setActiveHighlight(null), 2800)
+    return () => {
+      timers.forEach(clearTimeout)
+      clearTimeout(clear)
     }
-    return { top, left, below: false }
-  }, [anchor, isNarrow])
+  }, [highlightMemberId, highlightNonce, node.id, members.length, layout])
 
-  useLayoutEffect(() => {
-    if (!cardRef.current || !pos) return
-    setCardBox(cardRef.current.getBoundingClientRect())
-  }, [pos, members.length])
+  if (typeof document === 'undefined' || !layout) return null
 
-  const line = useMemo(() => {
-    if (!anchor || !cardBox || !pos) return null
-    if (pos.below) {
-      return {
-        x1: anchor.left + anchor.width / 2,
-        y1: anchor.bottom,
-        x2: cardBox.left + cardBox.width / 2,
-        y2: cardBox.top,
-      }
-    }
-    const toRight = cardBox.left >= anchor.right - 4
-    return {
-      x1: toRight ? anchor.right : anchor.left,
-      y1: anchor.top + anchor.height / 2,
-      x2: toRight ? cardBox.left : cardBox.right,
-      y2: cardBox.top + Math.min(56, cardBox.height / 2),
-    }
-  }, [anchor, cardBox, pos])
-
-  if (!pos || typeof document === 'undefined') return null
+  const { top, left, below, x1, y1, x2, y2 } = layout
+  const c1x = below ? x1 : (x1 + x2) / 2
+  const c1y = below ? (y1 + y2) / 2 : y1
+  const c2x = below ? x2 : (x1 + x2) / 2
+  const c2y = below ? (y1 + y2) / 2 : y2
+  const d = `M ${x1} ${y1} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${x2} ${y2}`
 
   return createPortal(
     <>
-      {line && (
-        <svg
-          className="pointer-events-none fixed inset-0 z-[46]"
-          width="100%"
-          height="100%"
-          aria-hidden
-        >
-          <path
-            d={`M ${line.x1} ${line.y1} C ${
-              pos.below ? line.x1 : (line.x1 + line.x2) / 2
-            } ${pos.below ? (line.y1 + line.y2) / 2 : line.y1}, ${
-              pos.below ? line.x2 : (line.x1 + line.x2) / 2
-            } ${pos.below ? (line.y1 + line.y2) / 2 : line.y2}, ${line.x2} ${line.y2}`}
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <path
-            d={`M ${line.x1} ${line.y1} C ${
-              pos.below ? line.x1 : (line.x1 + line.x2) / 2
-            } ${pos.below ? (line.y1 + line.y2) / 2 : line.y1}, ${
-              pos.below ? line.x2 : (line.x1 + line.x2) / 2
-            } ${pos.below ? (line.y1 + line.y2) / 2 : line.y2}, ${line.x2} ${line.y2}`}
-            fill="none"
-            stroke={color}
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <circle cx={line.x1} cy={line.y1} r={4} fill="#fff" />
-          <circle cx={line.x1} cy={line.y1} r={3} fill={color} />
-          <circle cx={line.x2} cy={line.y2} r={4} fill="#fff" />
-          <circle cx={line.x2} cy={line.y2} r={3} fill={color} />
-        </svg>
-      )}
+      <svg
+        className="pointer-events-none fixed inset-0 z-[46]"
+        width="100%"
+        height="100%"
+        aria-hidden
+      >
+        <path d={d} fill="none" stroke="#ffffff" strokeWidth="6" strokeLinecap="round" />
+        <path d={d} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" />
+        <circle cx={x1} cy={y1} r={4} fill="#fff" />
+        <circle cx={x1} cy={y1} r={3} fill={color} />
+        <circle cx={x2} cy={y2} r={4} fill="#fff" />
+        <circle cx={x2} cy={y2} r={3} fill={color} />
+      </svg>
 
       <div
-        ref={cardRef}
         data-no-pan
         data-focus-card
-        className={`fixed z-[47] flex flex-col overflow-hidden rounded-2xl border-2 shadow-2xl ${
-          reduced ? '' : 'animate-[focus-card-portal-in_0.3s_ease-out_both]'
-        }`}
+        className="fixed z-[47] flex flex-col overflow-hidden rounded-2xl border-2 bg-white shadow-2xl"
         style={{
-          top: pos.top,
-          left: pos.left,
-          width: cardW,
-          height: cardH,
+          top,
+          left,
+          width: CARD_W,
+          height: CARD_H,
           backgroundColor: '#ffffff',
           borderColor: color,
-          opacity: 1,
         }}
         role="dialog"
         aria-label={`Nhân sự ${node.name}`}
@@ -222,27 +250,35 @@ export function FocusMembersCard({ node, members, onOpenPanel, onClose }: Props)
             e.stopPropagation()
           }}
         >
-          {members.map((m) => (
-            <li
-              key={m.id}
-              className="rounded-xl border border-slate-200 px-3 py-2.5"
-              style={{ backgroundColor: '#f8fafc' }}
-            >
-              <p className="text-sm text-slate-700">
-                <span className="font-semibold text-slate-900">{m.name}</span>
-                <span className="text-slate-500"> - [{schoolLabel(m, schoolsById)}]</span>
-              </p>
-              <div className="mt-1.5 flex flex-wrap gap-1">
-                {(m.nodes || []).length ? (
-                  (m.nodes || []).map((n) => (
-                    <TagPill key={n.id} label={n.name} color={n.color} size="sm" />
-                  ))
-                ) : (
-                  <span className="text-[11px] text-slate-400">Chưa gắn node</span>
-                )}
-              </div>
-            </li>
-          ))}
+          {members.map((m) => {
+            const highlighted = activeHighlight === m.id
+            return (
+              <li
+                key={m.id}
+                data-member-id={m.id}
+                className={`rounded-xl border px-3 py-2.5 transition ${
+                  highlighted
+                    ? 'border-sky-400 bg-sky-50 ring-2 ring-sky-300/70'
+                    : 'border-slate-200'
+                }`}
+                style={{ backgroundColor: highlighted ? undefined : '#f8fafc' }}
+              >
+                <p className="text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">{m.name}</span>
+                  <span className="text-slate-500"> - [{schoolLabel(m, schoolsById)}]</span>
+                </p>
+                <div className="mt-1.5 flex flex-wrap gap-1">
+                  {(m.nodes || []).length ? (
+                    (m.nodes || []).map((n) => (
+                      <TagPill key={n.id} label={n.name} color={n.color} size="sm" />
+                    ))
+                  ) : (
+                    <span className="text-[11px] text-slate-400">Chưa gắn node</span>
+                  )}
+                </div>
+              </li>
+            )
+          })}
           {!members.length && (
             <li className="px-2 py-6 text-center text-sm text-slate-500">Chưa có nhân sự</li>
           )}
@@ -259,16 +295,6 @@ export function FocusMembersCard({ node, members, onOpenPanel, onClose }: Props)
           </button>
         </div>
       </div>
-
-      <style>{`
-        @keyframes focus-card-portal-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-\\[focus-card-portal-in_0\\.3s_ease-out_both\\] { animation: none !important; }
-        }
-      `}</style>
     </>,
     document.body,
   )

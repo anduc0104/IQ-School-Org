@@ -5,6 +5,8 @@ import { FocusMembersCard } from './FocusMembersCard'
 
 type FocusOverlay = {
   members: Employee[]
+  highlightMemberId?: string | null
+  highlightNonce?: number
   hidden?: boolean
   onOpenPanel: () => void
   onClose: () => void
@@ -48,6 +50,8 @@ function FocusWrap({
         <FocusMembersCard
           node={node}
           members={overlay.members}
+          highlightMemberId={overlay.highlightMemberId}
+          highlightNonce={overlay.highlightNonce}
           onOpenPanel={overlay.onOpenPanel}
           onClose={overlay.onClose}
         />
@@ -176,11 +180,11 @@ function NodeCard({
         if (!canSelect) return
         onSelectNode(node, e.currentTarget.getBoundingClientRect())
       }}
-      className={`group relative inline-flex max-w-full items-center justify-center gap-2 border-2 font-semibold text-slate-900 transition-[transform,opacity,box-shadow,filter] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 motion-reduce:transition-none ${size} ${
+      className={`group relative inline-flex max-w-full items-center justify-center gap-2 border-2 font-semibold text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${size} ${
         canDrag ? 'cursor-grab active:cursor-grabbing' : canSelect ? 'cursor-pointer hover:brightness-[0.98]' : 'cursor-default'
       } ${dropHighlight ? 'ring-2 ring-amber-400 ring-offset-2' : ''} ${
-        focused ? 'z-20 scale-[1.04] motion-reduce:scale-100' : ''
-      } ${dimmed ? 'pointer-events-none scale-[0.98] opacity-[0.08] grayscale-[0.45] motion-reduce:opacity-20' : ''}`}
+        focused ? 'z-20 scale-[1.04] transition-transform duration-150 ease-out motion-reduce:scale-100 motion-reduce:transition-none' : ''
+      } ${dimmed ? 'pointer-events-none opacity-[0.08] grayscale-[0.45] motion-reduce:opacity-20' : ''}`}
       style={{
         background: hexToRgba(color, variant === 'stream' ? 0.22 : 0.14),
         borderColor: dropHighlight ? '#F59E0B' : color,

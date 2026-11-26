@@ -1,10 +1,11 @@
-import { RefreshCw, Sparkles } from 'lucide-react'
+import { PanelRightOpen, RefreshCw, Sparkles } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { api, clearDataCache, type Employee, type OrgNode } from './api'
 import { ChartViewport, type ChartMode, type ChartViewportHandle } from './components/ChartViewport'
 import { EmployeeList } from './components/EmployeeList'
 import { NodePanel } from './components/NodePanel'
 import { OrgChart } from './components/OrgChart'
+import { PeopleSidebar } from './components/PeopleSidebar'
 
 type View = 'tree' | 'people'
 
@@ -16,7 +17,12 @@ export default function App() {
   const [employees, setEmployees] = useState<Employee[]>([])
   const [focused, setFocused] = useState<OrgNode | null>(null)
   const [focusMembers, setFocusMembers] = useState<Employee[]>([])
+  const [highlightMemberId, setHighlightMemberId] = useState<string | null>(null)
+  const [highlightNonce, setHighlightNonce] = useState(0)
   const [panelOpen, setPanelOpen] = useState(false)
+  const [peopleSidebarOpen, setPeopleSidebarOpen] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth >= 1100,
+  )
   const [toast, setToast] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [chartMode] = useState<ChartMode>('select')
@@ -31,6 +37,7 @@ export default function App() {
   const clearFocus = useCallback(() => {
     setFocused(null)
     setFocusMembers([])
+    setHighlightMemberId(null)
     setPanelOpen(false)
     viewportRef.current?.resetView()
   }, [])
@@ -77,22 +84,29 @@ export default function App() {
   )
 
   const onSelectNode = useCallback(
-    async (node: OrgNode) => {
+    (node: OrgNode, memberId?: string | null) => {
       setFocused(node)
       setPanelOpen(false)
+      setHighlightMemberId(memberId ?? null)
+      if (memberId) setHighlightNonce((n) => n + 1)
+      // Card hiện ngay từ cache — không chờ API
+      setFocusMembers(employees.filter((e) => (e.nodes || []).some((n) => n.id === node.id)))
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          viewportRef.current?.focusNode(node.id)
-        })
+        viewportRef.current?.focusNode(node.id)
       })
-      try {
-        const members = await api.getNodeMembers(node.id)
-        setFocusMembers(enrichMembers(members))
-      } catch {
-        setFocusMembers([])
-      }
+      api
+        .getNodeMembers(node.id)
+        .then((members) => setFocusMembers(enrichMembers(members)))
+        .catch(() => {})
     },
-    [enrichMembers],
+    [employees, enrichMembers],
+  )
+
+  const onSelectEmployee = useCallback(
+    (emp: Employee, node: OrgNode) => {
+      onSelectNode(node, emp.id)
+    },
+    [onSelectNode],
   )
 
   useEffect(() => {
@@ -106,14 +120,6 @@ export default function App() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [focused, clearFocus])
-
-  useEffect(() => {
-    if (!focused) return
-    api
-      .getNodeMembers(focused.id)
-      .then((members) => setFocusMembers(enrichMembers(members)))
-      .catch(() => {})
-  }, [employees, focused, enrichMembers])
 
   const compactChrome = chartFullscreen && view === 'tree'
 
@@ -193,10 +199,25 @@ export default function App() {
                       {c.label}
                     </span>
                   ))}
+                  <div className="ml-auto">
+                    <button
+                      type="button"
+                      onClick={() => setPeopleSidebarOpen((v) => !v)}
+                      className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
+                        peopleSidebarOpen
+                          ? 'border-sky-200 bg-sky-50 text-sky-700'
+                          : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                      }`}
+                      title={peopleSidebarOpen ? 'Đóng danh sách nhân sự' : 'Mở danh sách nhân sự'}
+                    >
+                      <PanelRightOpen size={14} />
+                      {peopleSidebarOpen ? 'Ẩn NS' : 'Nhân sự'}
+                    </button>
+                  </div>
                 </div>
               )}
 
-              <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+              <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
                 {loading && !tree.length ? (
                   <div className="flex flex-1 items-center justify-center rounded-xl border border-dashed border-slate-200 bg-white text-sm text-slate-500">
                     Đang tải sơ đồ…
@@ -224,6 +245,8 @@ export default function App() {
                         focused
                           ? {
                               members: focusMembers,
+                              highlightMemberId,
+                              highlightNonce,
                               hidden: panelOpen,
                               onOpenPanel: () => setPanelOpen(true),
                               onClose: clearFocus,
@@ -231,12 +254,58 @@ export default function App() {
                           : null
                       }
                       mode={chartMode}
-                      onSelectNode={onSelectNode}
+                      onSelectNode={(node) => onSelectNode(node)}
                     />
                   </ChartViewport>
                 )}
+
+                {compactChrome && !peopleSidebarOpen && (
+                  <button
+                    type="button"
+                    onClick={() => setPeopleSidebarOpen(true)}
+                    className="absolute top-14 right-3 z-30 inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white/95 px-2.5 py-2 text-xs font-semibold text-slate-700 shadow-md backdrop-blur hover:bg-white"
+                    title="Mở danh sách nhân sự"
+                  >
+                    <PanelRightOpen size={14} />
+                    Nhân sự
+                  </button>
+                )}
               </div>
             </div>
+
+            {!compactChrome && (
+              <PeopleSidebar
+                open={peopleSidebarOpen}
+                onClose={() => setPeopleSidebarOpen(false)}
+                tree={tree}
+                flat={flat}
+                employees={employees}
+                onSelectNode={(node) => onSelectNode(node)}
+                onSelectEmployee={onSelectEmployee}
+              />
+            )}
+
+            {compactChrome && peopleSidebarOpen && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Đóng sidebar nhân sự"
+                  className="fixed inset-0 z-[48] bg-slate-900/40"
+                  onClick={() => setPeopleSidebarOpen(false)}
+                />
+                <div className="fixed inset-y-0 right-0 z-[49] flex h-[100dvh] animate-[panel-in_0.28s_ease-out]">
+                  <PeopleSidebar
+                    open
+                    onClose={() => setPeopleSidebarOpen(false)}
+                    tree={tree}
+                    flat={flat}
+                    employees={employees}
+                    onSelectNode={(node) => onSelectNode(node)}
+                    onSelectEmployee={onSelectEmployee}
+                  />
+                </div>
+              </>
+            )}
 
             {panelOpen && focused && (
               <>
