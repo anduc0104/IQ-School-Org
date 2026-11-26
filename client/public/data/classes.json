@@ -1,0 +1,1361 @@
+[
+  {
+    "id": 56,
+    "school_id": 2,
+    "name": "1A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 2,
+    "school_id": 1,
+    "name": "1A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 81,
+    "school_id": 1,
+    "name": "1A1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 117,
+    "school_id": 1,
+    "name": "1A1 hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 57,
+    "school_id": 2,
+    "name": "1A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 3,
+    "school_id": 1,
+    "name": "1A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 82,
+    "school_id": 1,
+    "name": "1A2 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 118,
+    "school_id": 1,
+    "name": "1A2 hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 4,
+    "school_id": 1,
+    "name": "1A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 58,
+    "school_id": 2,
+    "name": "1A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 83,
+    "school_id": 1,
+    "name": "1A3 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 119,
+    "school_id": 1,
+    "name": "1A3 hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 5,
+    "school_id": 1,
+    "name": "1A4",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 84,
+    "school_id": 1,
+    "name": "1A4 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 120,
+    "school_id": 1,
+    "name": "1A4 hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 6,
+    "school_id": 1,
+    "name": "1A5",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 121,
+    "school_id": 1,
+    "name": "1A5 hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 85,
+    "school_id": 1,
+    "name": "1N1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 124,
+    "school_id": 2,
+    "name": "1a1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 125,
+    "school_id": 2,
+    "name": "1a2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 7,
+    "school_id": 1,
+    "name": "2A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 59,
+    "school_id": 2,
+    "name": "2A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 86,
+    "school_id": 1,
+    "name": "2A1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 8,
+    "school_id": 1,
+    "name": "2A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 60,
+    "school_id": 2,
+    "name": "2A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 87,
+    "school_id": 1,
+    "name": "2A2 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 9,
+    "school_id": 1,
+    "name": "2A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 88,
+    "school_id": 1,
+    "name": "2A3 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 10,
+    "school_id": 1,
+    "name": "2A4",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 89,
+    "school_id": 1,
+    "name": "2A4 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 11,
+    "school_id": 1,
+    "name": "2A5",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 114,
+    "school_id": 1,
+    "name": "2H1",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 115,
+    "school_id": 1,
+    "name": "2H2",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 90,
+    "school_id": 1,
+    "name": "2N1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 126,
+    "school_id": 2,
+    "name": "2a1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 127,
+    "school_id": 2,
+    "name": "2a2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 128,
+    "school_id": 2,
+    "name": "2a3-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 116,
+    "school_id": 1,
+    "name": "3A hè",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 12,
+    "school_id": 1,
+    "name": "3A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 61,
+    "school_id": 2,
+    "name": "3A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 91,
+    "school_id": 1,
+    "name": "3A1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 13,
+    "school_id": 1,
+    "name": "3A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 62,
+    "school_id": 2,
+    "name": "3A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 92,
+    "school_id": 1,
+    "name": "3A2 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 63,
+    "school_id": 2,
+    "name": "3A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 14,
+    "school_id": 1,
+    "name": "3A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 93,
+    "school_id": 1,
+    "name": "3A3 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 72,
+    "school_id": 1,
+    "name": "3A4",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 73,
+    "school_id": 1,
+    "name": "3A5",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 94,
+    "school_id": 1,
+    "name": "3N1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 129,
+    "school_id": 2,
+    "name": "3a1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 130,
+    "school_id": 2,
+    "name": "3a2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 15,
+    "school_id": 1,
+    "name": "4A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 64,
+    "school_id": 2,
+    "name": "4A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 95,
+    "school_id": 1,
+    "name": "4A1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 16,
+    "school_id": 1,
+    "name": "4A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 65,
+    "school_id": 2,
+    "name": "4A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 96,
+    "school_id": 1,
+    "name": "4A2 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 66,
+    "school_id": 2,
+    "name": "4A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 97,
+    "school_id": 1,
+    "name": "4A3 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 131,
+    "school_id": 2,
+    "name": "4a1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 132,
+    "school_id": 2,
+    "name": "4a2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 71,
+    "school_id": 1,
+    "name": "4a3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 133,
+    "school_id": 2,
+    "name": "4a3-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 67,
+    "school_id": 2,
+    "name": "5A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 17,
+    "school_id": 1,
+    "name": "5A1",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 98,
+    "school_id": 1,
+    "name": "5A1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 68,
+    "school_id": 2,
+    "name": "5A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 18,
+    "school_id": 1,
+    "name": "5A2",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 99,
+    "school_id": 1,
+    "name": "5A2- 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 33,
+    "school_id": 1,
+    "name": "5A3",
+    "school_year": "2025-2026",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 135,
+    "school_id": 2,
+    "name": "5a1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 134,
+    "school_id": 2,
+    "name": "5a2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 52,
+    "school_id": 2,
+    "name": "6A1",
+    "school_year": "2025-2026",
+    "grade": "SECONDARY_6",
+    "class_type": "SECONDARY",
+    "is_active": false
+  },
+  {
+    "id": 110,
+    "school_id": 2,
+    "name": "6A1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "SECONDARY_6",
+    "class_type": "SECONDARY",
+    "is_active": true
+  },
+  {
+    "id": 53,
+    "school_id": 2,
+    "name": "6A2",
+    "school_year": "2025-2026",
+    "grade": "SECONDARY_6",
+    "class_type": "SECONDARY",
+    "is_active": false
+  },
+  {
+    "id": 54,
+    "school_id": 2,
+    "name": "7A1",
+    "school_year": "2025-2026",
+    "grade": "SECONDARY_7",
+    "class_type": "SECONDARY",
+    "is_active": false
+  },
+  {
+    "id": 111,
+    "school_id": 2,
+    "name": "7A1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "SECONDARY_7",
+    "class_type": "SECONDARY",
+    "is_active": true
+  },
+  {
+    "id": 55,
+    "school_id": 2,
+    "name": "8A1",
+    "school_year": "2025-2026",
+    "grade": "SECONDARY_8",
+    "class_type": "SECONDARY",
+    "is_active": false
+  },
+  {
+    "id": 112,
+    "school_id": 2,
+    "name": "8A1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "SECONDARY_8",
+    "class_type": "SECONDARY",
+    "is_active": true
+  },
+  {
+    "id": 113,
+    "school_id": 2,
+    "name": "9A1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "SECONDARY_9",
+    "class_type": "SECONDARY",
+    "is_active": true
+  },
+  {
+    "id": 47,
+    "school_id": 2,
+    "name": "Bambi",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 30,
+    "school_id": 1,
+    "name": "Bambi 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 75,
+    "school_id": 1,
+    "name": "Bambi 1 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 36,
+    "school_id": 3,
+    "name": "Bambi 1-HM-26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 145,
+    "school_id": 2,
+    "name": "Bambi 1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 31,
+    "school_id": 1,
+    "name": "Bambi 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 79,
+    "school_id": 1,
+    "name": "Bambi 2 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 146,
+    "school_id": 2,
+    "name": "Bambi 2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 32,
+    "school_id": 1,
+    "name": "Bambi 3",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 80,
+    "school_id": 1,
+    "name": "Bambi 3 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 123,
+    "school_id": 1,
+    "name": "Bambi 4 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_KITTY",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 149,
+    "school_id": 1,
+    "name": "CLB Mỹ Thuật",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 160,
+    "school_id": 1,
+    "name": "CLB Nhảy p1-2",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 161,
+    "school_id": 1,
+    "name": "CLB Nhảy p3-4-5",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 159,
+    "school_id": 1,
+    "name": "CLB Timo 1A1",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 154,
+    "school_id": 1,
+    "name": "CLB Timo P1",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 155,
+    "school_id": 1,
+    "name": "CLB Timo P2",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 156,
+    "school_id": 1,
+    "name": "CLB Timo P3",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 157,
+    "school_id": 1,
+    "name": "CLB Timo P4",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_4",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 150,
+    "school_id": 1,
+    "name": "CLB Tiếng Trung 2-4",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 158,
+    "school_id": 1,
+    "name": "CLB Tiếng Trung 3-5",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 151,
+    "school_id": 1,
+    "name": "CLB cờ vua",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 152,
+    "school_id": 1,
+    "name": "CLB Đàn",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 46,
+    "school_id": 2,
+    "name": "Donal",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 35,
+    "school_id": 3,
+    "name": "Donal 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 137,
+    "school_id": 1,
+    "name": "Donald 1 - 2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 34,
+    "school_id": 3,
+    "name": "Donald 1-HM-26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 28,
+    "school_id": 1,
+    "name": "Donald 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 104,
+    "school_id": 1,
+    "name": "Donald 2 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 140,
+    "school_id": 3,
+    "name": "Donald 2-HM-26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 147,
+    "school_id": 2,
+    "name": "Donald 2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 29,
+    "school_id": 1,
+    "name": "Donald 3",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 69,
+    "school_id": 1,
+    "name": "Donald 4",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DONAL",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 19,
+    "school_id": 1,
+    "name": "Dumbo 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 50,
+    "school_id": 2,
+    "name": "Dumbo 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 38,
+    "school_id": 3,
+    "name": "Dumbo 1-HM- 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 141,
+    "school_id": 2,
+    "name": "Dumbo 1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 100,
+    "school_id": 1,
+    "name": "Dumbo 1A - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 101,
+    "school_id": 1,
+    "name": "Dumbo 1B - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 20,
+    "school_id": 1,
+    "name": "Dumbo 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 51,
+    "school_id": 2,
+    "name": "Dumbo 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 102,
+    "school_id": 1,
+    "name": "Dumbo 2 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 142,
+    "school_id": 2,
+    "name": "Dumbo 2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 21,
+    "school_id": 1,
+    "name": "Dumbo 3",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 103,
+    "school_id": 1,
+    "name": "Dumbo 3 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 22,
+    "school_id": 1,
+    "name": "Dumbo 4",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 23,
+    "school_id": 1,
+    "name": "Dumbo 5",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 70,
+    "school_id": 1,
+    "name": "New chưa xếp",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 39,
+    "school_id": 1,
+    "name": "PP 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 40,
+    "school_id": 1,
+    "name": "PP 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 41,
+    "school_id": 1,
+    "name": "PP 3",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 42,
+    "school_id": 1,
+    "name": "PP 4",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 74,
+    "school_id": 1,
+    "name": "PP 5",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_DUMBO",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 48,
+    "school_id": 2,
+    "name": "Panda 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 24,
+    "school_id": 1,
+    "name": "Panda 1",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 76,
+    "school_id": 1,
+    "name": "Panda 1 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 37,
+    "school_id": 3,
+    "name": "Panda 1-HM-26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 144,
+    "school_id": 2,
+    "name": "Panda 1-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 25,
+    "school_id": 1,
+    "name": "Panda 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 49,
+    "school_id": 2,
+    "name": "Panda 2",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 77,
+    "school_id": 1,
+    "name": "Panda 2 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 143,
+    "school_id": 2,
+    "name": "Panda 2-NB-2026/2027",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 26,
+    "school_id": 1,
+    "name": "Panda 3",
+    "school_year": "2025-2026",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": false
+  },
+  {
+    "id": 78,
+    "school_id": 1,
+    "name": "Panda 3 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "KINDERGARTEN_PANDA",
+    "class_type": "KINDERGARTEN",
+    "is_active": true
+  },
+  {
+    "id": 108,
+    "school_id": 1,
+    "name": "SP1 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_2",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 109,
+    "school_id": 1,
+    "name": "SP2 - 26/27",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_3",
+    "class_type": "PRIMARY",
+    "is_active": false
+  },
+  {
+    "id": 162,
+    "school_id": 1,
+    "name": "Tín Chỉ Julia",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 139,
+    "school_id": 1,
+    "name": "Tín chỉ Danny",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_5",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 136,
+    "school_id": 1,
+    "name": "test",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  },
+  {
+    "id": 138,
+    "school_id": 1,
+    "name": "test 2",
+    "school_year": "2026-2027",
+    "grade": "PRIMARY_1",
+    "class_type": "PRIMARY",
+    "is_active": true
+  }
+]

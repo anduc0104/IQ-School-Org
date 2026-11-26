@@ -1,0 +1,17 @@
+[
+  {
+    "id": 3,
+    "name": "IQ Hoàng Mai",
+    "address": "KĐT Đồng Tàu, P.Hoàng Mai, TP.Hà Nội"
+  },
+  {
+    "id": 1,
+    "name": "IQ Hà Đông",
+    "address": "Hà Đông"
+  },
+  {
+    "id": 2,
+    "name": "IQ Ninh Bình",
+    "address": "Ninh Bình"
+  }
+]

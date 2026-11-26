@@ -1,6 +1,6 @@
 import { RefreshCw, Sparkles } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { api, type Employee, type OrgNode } from './api'
+import { api, clearDataCache, type Employee, type OrgNode } from './api'
 import { ChartViewport, type ChartMode, type ChartViewportHandle } from './components/ChartViewport'
 import { EmployeeList } from './components/EmployeeList'
 import { NodePanel } from './components/NodePanel'
@@ -19,7 +19,7 @@ export default function App() {
   const [panelOpen, setPanelOpen] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
-  const [chartMode, setChartMode] = useState<ChartMode>('select')
+  const [chartMode] = useState<ChartMode>('select')
   const [chartFullscreen, setChartFullscreen] = useState(false)
   const viewportRef = useRef<ChartViewportHandle>(null)
 
@@ -35,13 +35,11 @@ export default function App() {
     viewportRef.current?.resetView()
   }, [])
 
-  const loadAll = useCallback(async (q?: string) => {
+  const loadAll = useCallback(async () => {
     setLoading(true)
+    clearDataCache()
     try {
-      const [nodes, people] = await Promise.all([
-        api.getNodes(),
-        api.getEmployees(q ? { q } : undefined),
-      ])
+      const [nodes, people] = await Promise.all([api.getNodes(), api.getEmployees()])
       setTree(nodes.tree)
       setFlat(nodes.flat)
       setEmployees(people)
@@ -82,7 +80,6 @@ export default function App() {
     async (node: OrgNode) => {
       setFocused(node)
       setPanelOpen(false)
-      // Wait for focused styles + card mount, then zoom/pan node to ~1/3 left
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           viewportRef.current?.focusNode(node.id)
@@ -96,22 +93,6 @@ export default function App() {
       }
     },
     [enrichMembers],
-  )
-
-  const onMoveNode = useCallback(
-    async (nodeId: string, targetParentId: string | null, beforeId?: string | null) => {
-      try {
-        await api.moveNode(nodeId, {
-          parent_id: targetParentId,
-          before_id: beforeId ?? null,
-        })
-        notify('Đã cập nhật vị trí node')
-        await loadAll()
-      } catch (err) {
-        notify(err instanceof Error ? err.message : 'Không thể di chuyển node')
-      }
-    },
-    [loadAll],
   )
 
   useEffect(() => {
@@ -147,7 +128,9 @@ export default function App() {
               </div>
               <div className="min-w-0">
                 <h1 className="truncate text-sm font-bold text-slate-900 sm:text-base">IQ School Org</h1>
-                <p className="hidden text-[11px] text-slate-500 sm:block">Cây phân tầng · dense</p>
+                <p className="hidden text-[11px] text-slate-500 sm:block">
+                  Sơ đồ tĩnh · đọc từ JSON
+                </p>
               </div>
             </div>
             <nav className="flex items-center gap-0.5 rounded-xl border border-slate-200 bg-slate-50 p-0.5">
@@ -173,7 +156,7 @@ export default function App() {
             </nav>
             <button
               type="button"
-              onClick={() => loadAll()}
+              onClick={() => loadAll().catch((err) => notify(err.message))}
               className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 sm:text-sm"
             >
               <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
@@ -222,7 +205,7 @@ export default function App() {
                   <ChartViewport
                     ref={viewportRef}
                     mode={chartMode}
-                    onModeChange={setChartMode}
+                    onModeChange={() => {}}
                     fullscreen={chartFullscreen}
                     onFullscreenChange={setChartFullscreen}
                     showCounts={showCounts}
@@ -238,7 +221,7 @@ export default function App() {
                       selectedId={focused?.id}
                       focusedId={focused?.id}
                       focusOverlay={
-                        focused && chartMode === 'select'
+                        focused
                           ? {
                               members: focusMembers,
                               hidden: panelOpen,
@@ -249,7 +232,6 @@ export default function App() {
                       }
                       mode={chartMode}
                       onSelectNode={onSelectNode}
-                      onMoveNode={onMoveNode}
                     />
                   </ChartViewport>
                 )}
@@ -268,10 +250,8 @@ export default function App() {
                   <NodePanel
                     node={focused}
                     employees={employees}
-                    tree={tree}
-                    flat={flat}
+                    members={focusMembers}
                     onClose={clearFocus}
-                    onChanged={() => loadAll()}
                   />
                 </div>
               </>
@@ -279,42 +259,7 @@ export default function App() {
           </div>
         ) : (
           <div className="min-h-0 flex-1 overflow-y-auto pb-4">
-            <EmployeeList
-              employees={employees}
-              nodes={flat}
-              tree={tree}
-              onCreate={async (payload) => {
-                await api.createEmployee(payload)
-                notify('Đã thêm nhân sự')
-                await loadAll()
-              }}
-              onUpdate={async (id, payload) => {
-                await api.updateEmployee(id, payload)
-                notify('Đã cập nhật nhân sự')
-                await loadAll()
-              }}
-              onDelete={async (id) => {
-                if (!confirm('Xóa nhân sự này?')) return
-                await api.deleteEmployee(id)
-                notify('Đã xóa')
-                await loadAll()
-              }}
-              onImportExcel={async (file) => {
-                const result = await api.importExcel(file)
-                notify(`Excel: +${result.created} mới, ${result.updated} cập nhật`)
-                await loadAll()
-              }}
-              onImportSource={async () => {
-                const result = await api.importSource()
-                notify(
-                  `Đồng bộ ${result.employees} NS, ${result.links} liên kết` +
-                    (result.unmatchedDepartments.length
-                      ? ` · chưa map: ${result.unmatchedDepartments.slice(0, 5).join(', ')}`
-                      : ''),
-                )
-                await loadAll()
-              }}
-            />
+            <EmployeeList employees={employees} nodes={flat} tree={tree} />
           </div>
         )}
       </main>

@@ -1,0 +1,172 @@
+[
+  {
+    "id": 13,
+    "name": "Bảo Trì",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 12,
+    "name": "Bảo Vệ",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 7,
+    "name": "Bếp",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 29,
+    "name": "Cố Vấn",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 17,
+    "name": "Giáo Viên Mầm Non",
+    "dept_type": "DEPT_KINDERGARTEN_TEACHER"
+  },
+  {
+    "id": 22,
+    "name": "Giáo Viên Mỹ Thuật",
+    "dept_type": "DEPT_NK_TEACHER"
+  },
+  {
+    "id": 28,
+    "name": "Giáo Viên Nước Ngoài",
+    "dept_type": "DEPT_PRIMARY_TEACHER"
+  },
+  {
+    "id": 25,
+    "name": "Giáo Viên Thể Chất",
+    "dept_type": "DEPT_NK_TEACHER"
+  },
+  {
+    "id": 23,
+    "name": "Giáo Viên Tin Học",
+    "dept_type": "DEPT_NK_TEACHER"
+  },
+  {
+    "id": 16,
+    "name": "Giáo Viên Tiếng Anh Mầm Non",
+    "dept_type": "DEPT_KINDERGARTEN_TEACHER"
+  },
+  {
+    "id": 20,
+    "name": "Giáo Viên Tiếng Anh Tiểu Học",
+    "dept_type": "DEPT_PRIMARY_TEACHER"
+  },
+  {
+    "id": 21,
+    "name": "Giáo Viên Tiếng Trung",
+    "dept_type": "DEPT_NK_TEACHER"
+  },
+  {
+    "id": 18,
+    "name": "Giáo Viên Tiếng Việt Tiểu Học",
+    "dept_type": "DEPT_PRIMARY_TEACHER"
+  },
+  {
+    "id": 19,
+    "name": "Giáo Viên Toán Tiểu Học",
+    "dept_type": "DEPT_PRIMARY_TEACHER"
+  },
+  {
+    "id": 24,
+    "name": "Giáo Viên Âm Nhạc",
+    "dept_type": "DEPT_NK_TEACHER"
+  },
+  {
+    "id": 36,
+    "name": "Giáo viên Lý/Hóa/Sinh - THCS",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 34,
+    "name": "Giáo viên Ngữ Văn - THCS",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 31,
+    "name": "Giáo viên Part-time",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 37,
+    "name": "Giáo viên Sử/Địa/GDCD",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 33,
+    "name": "Giáo viên Tiếng Anh - THCS",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 35,
+    "name": "Giáo viên Toán - THCS",
+    "dept_type": "DEPT_SECONDARY_TEACHER"
+  },
+  {
+    "id": 39,
+    "name": "Giáo viên âm nhạc mầm non",
+    "dept_type": "DEPT_KINDERGARTEN_TEACHER"
+  },
+  {
+    "id": 1,
+    "name": "HR",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 27,
+    "name": "Hiệu Trưởng",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 30,
+    "name": "HĐQT",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 5,
+    "name": "IT",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 6,
+    "name": "Kế Toán",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 11,
+    "name": "Lao Công",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 8,
+    "name": "Marketing",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 9,
+    "name": "Pháp Chế",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 14,
+    "name": "Số Hóa",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 26,
+    "name": "Tuyển Sinh",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 32,
+    "name": "Xe đưa đón",
+    "dept_type": "DEPT_BACKOFFICE"
+  },
+  {
+    "id": 10,
+    "name": "Y Tế",
+    "dept_type": "DEPT_BACKOFFICE"
+  }
+]

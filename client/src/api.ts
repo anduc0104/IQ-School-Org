@@ -36,7 +36,7 @@ export type Employee = {
   nodes?: { id: string; name: string; color: string; is_primary?: boolean }[]
 }
 
-/** Description: GVCN → GVBM → phòng ban (iq_system) */
+/** Description: GVCN → GVBM → phòng ban */
 export function employeeDescription(e: Employee): string | undefined {
   return (
     e.extra?.gvcn_class ||
@@ -59,86 +59,109 @@ export type SourceClass = {
 }
 export type SourceDepartment = { id: number; name: string; dept_type?: string | null }
 
-async function request<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, init)
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}))
-    throw new Error(body.error || res.statusText)
-  }
+const DATA = `${import.meta.env.BASE_URL}data`
+
+type Cache = {
+  nodes?: { flat: OrgNode[]; tree: OrgNode[] }
+  employees?: Employee[]
+  schools?: SourceSchool[]
+  classes?: SourceClass[]
+  departments?: SourceDepartment[]
+}
+
+let cache: Cache = {}
+
+export function clearDataCache() {
+  cache = {}
+}
+
+async function loadJson<T>(file: string): Promise<T> {
+  const res = await fetch(`${DATA}/${file}`, { cache: 'no-store' })
+  if (!res.ok) throw new Error(`Không tải được ${file}: ${res.statusText}`)
   return res.json()
 }
 
+async function ensureNodes() {
+  if (!cache.nodes) {
+    const data = await loadJson<{ flat: OrgNode[]; tree: OrgNode[] }>('nodes.json')
+    cache.nodes = { flat: data.flat, tree: data.tree }
+  }
+  return cache.nodes
+}
+
+async function ensureEmployees() {
+  if (!cache.employees) {
+    const data = await loadJson<{ employees: Employee[] }>('employees.json')
+    cache.employees = data.employees
+  }
+  return cache.employees
+}
+
+function matchQuery(e: Employee, q: string) {
+  const needle = q.trim().toLowerCase()
+  if (!needle) return true
+  const hay = [
+    e.name,
+    e.english_name,
+    e.email,
+    e.main_class,
+    e.role_code,
+    ...(e.class_names || []),
+    ...(e.nodes || []).map((n) => n.name),
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+  return hay.includes(needle)
+}
+
 export const api = {
-  getNodes: () => request<{ flat: OrgNode[]; tree: OrgNode[] }>('/api/nodes'),
-  createNode: (body: Partial<OrgNode> & { name: string }) =>
-    request<OrgNode>('/api/nodes', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }),
-  updateNode: (id: string, body: Record<string, unknown>) =>
-    request<OrgNode>(`/api/nodes/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }),
-  moveNode: (id: string, body: { parent_id: string | null; before_id?: string | null }) =>
-    request<OrgNode>(`/api/nodes/${id}/move`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }),
-  deleteNode: (id: string) => request<{ ok: boolean }>(`/api/nodes/${id}`, { method: 'DELETE' }),
-  getNodeMembers: (id: string) => request<Employee[]>(`/api/nodes/${id}/members`),
-  addNodeMember: (id: string, employee_id: string) =>
-    request<{ ok: boolean }>(`/api/nodes/${id}/members`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ employee_id }),
-    }),
-  removeNodeMember: (id: string, employeeId: string) =>
-    request<{ ok: boolean }>(`/api/nodes/${id}/members/${employeeId}`, { method: 'DELETE' }),
-  getEmployees: (params?: { q?: string; node_id?: string }) => {
-    const qs = new URLSearchParams()
-    if (params?.q) qs.set('q', params.q)
-    if (params?.node_id) qs.set('node_id', params.node_id)
-    const suffix = qs.toString() ? `?${qs}` : ''
-    return request<Employee[]>(`/api/employees${suffix}`)
+  getNodes: async () => ensureNodes(),
+
+  getEmployees: async (params?: { q?: string; node_id?: string }) => {
+    let list = await ensureEmployees()
+    if (params?.node_id) {
+      list = list.filter((e) => (e.nodes || []).some((n) => n.id === params.node_id))
+    }
+    if (params?.q) {
+      list = list.filter((e) => matchQuery(e, params.q!))
+    }
+    return list
   },
-  createEmployee: (body: Record<string, unknown>) =>
-    request<Employee>('/api/employees', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }),
-  updateEmployee: (id: string, body: Record<string, unknown>) =>
-    request<Employee>(`/api/employees/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }),
-  deleteEmployee: (id: string) =>
-    request<{ ok: boolean }>(`/api/employees/${id}`, { method: 'DELETE' }),
-  importSource: () =>
-    request<{ employees: number; links: number; unmatchedDepartments: string[] }>(
-      '/api/employees/import/source',
-      { method: 'POST' },
-    ),
-  importExcel: async (file: File) => {
-    const form = new FormData()
-    form.append('file', file)
-    return request<{ created: number; updated: number; rows: number }>(
-      '/api/employees/import/excel',
-      { method: 'POST', body: form },
-    )
+
+  getNodeMembers: async (id: string) => {
+    const list = await ensureEmployees()
+    return list
+      .filter((e) => (e.nodes || []).some((n) => n.id === id))
+      .sort((a, b) => {
+        const aPri = (a.nodes || []).find((n) => n.id === id)?.is_primary ? 1 : 0
+        const bPri = (b.nodes || []).find((n) => n.id === id)?.is_primary ? 1 : 0
+        if (bPri !== aPri) return bPri - aPri
+        return a.name.localeCompare(b.name, 'vi')
+      })
   },
-  getSchools: () => request<SourceSchool[]>('/api/meta/schools'),
-  getClasses: (params?: { school_id?: number; active?: boolean }) => {
-    const qs = new URLSearchParams()
-    if (params?.school_id != null) qs.set('school_id', String(params.school_id))
-    if (params?.active) qs.set('active', '1')
-    const suffix = qs.toString() ? `?${qs}` : ''
-    return request<SourceClass[]>(`/api/meta/classes${suffix}`)
+
+  getSchools: async () => {
+    if (!cache.schools) cache.schools = await loadJson<SourceSchool[]>('schools.json')
+    return cache.schools
   },
-  getDepartments: () => request<SourceDepartment[]>('/api/meta/departments'),
+
+  getClasses: async (params?: { school_id?: number; active?: boolean }) => {
+    if (!cache.classes) cache.classes = await loadJson<SourceClass[]>('classes.json')
+    let list = cache.classes
+    if (params?.school_id != null) {
+      list = list.filter((c) => c.school_id === params.school_id)
+    }
+    if (params?.active) {
+      list = list.filter((c) => c.is_active !== false)
+    }
+    return list
+  },
+
+  getDepartments: async () => {
+    if (!cache.departments) {
+      cache.departments = await loadJson<SourceDepartment[]>('departments.json')
+    }
+    return cache.departments
+  },
 }

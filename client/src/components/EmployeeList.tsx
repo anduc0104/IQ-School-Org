@@ -1,12 +1,4 @@
-import {
-  ChevronLeft,
-  ChevronRight,
-  FileSpreadsheet,
-  Filter,
-  Plus,
-  Search,
-  Trash2,
-} from 'lucide-react'
+import { ChevronLeft, ChevronRight, Filter, Search } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import type { Employee, OrgNode } from '../api'
 import { MultiSelect } from './MultiSelect'
@@ -17,42 +9,18 @@ type Props = {
   employees: Employee[]
   nodes: OrgNode[]
   tree: OrgNode[]
-  onCreate: (payload: Record<string, unknown>) => Promise<void>
-  onUpdate: (id: string, payload: Record<string, unknown>) => Promise<void>
-  onDelete: (id: string) => Promise<void>
-  onImportExcel: (file: File) => Promise<void>
-  onImportSource: () => Promise<void>
 }
 
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100]
 
-export function EmployeeList({
-  employees,
-  nodes,
-  tree,
-  onCreate,
-  onUpdate,
-  onDelete,
-  onImportExcel,
-  onImportSource,
-}: Props) {
+export function EmployeeList({ employees, nodes, tree }: Props) {
   const [q, setQ] = useState('')
   const [filterTags, setFilterTags] = useState<string[]>([])
   const [filterClasses, setFilterClasses] = useState<string[]>([])
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(20)
-  const [editing, setEditing] = useState<Employee | null>(null)
-  const [creating, setCreating] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    english_name: '',
-    email: '',
-    phone: '',
-    main_class: '',
-    role_code: '',
-    node_ids: [] as string[],
-  })
+  const [detail, setDetail] = useState<Employee | null>(null)
 
   const nodeById = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes])
 
@@ -119,42 +87,6 @@ export function EmployeeList({
     return filtered.slice(start, start + pageSize)
   }, [filtered, page, pageSize])
 
-  function openCreate() {
-    setCreating(true)
-    setEditing(null)
-    setForm({
-      name: '',
-      english_name: '',
-      email: '',
-      phone: '',
-      main_class: '',
-      role_code: '',
-      node_ids: [],
-    })
-  }
-
-  function openEdit(emp: Employee) {
-    setEditing(emp)
-    setCreating(true)
-    setForm({
-      name: emp.name || '',
-      english_name: emp.english_name || '',
-      email: emp.email || '',
-      phone: emp.phone || '',
-      main_class: emp.main_class || '',
-      role_code: emp.role_code || '',
-      node_ids: (emp.nodes || []).map((n) => n.id),
-    })
-  }
-
-  async function submit() {
-    if (!form.name.trim()) return
-    if (editing) await onUpdate(editing.id, form)
-    else await onCreate(form)
-    setCreating(false)
-    setEditing(null)
-  }
-
   const activeFilterCount = filterTags.length + filterClasses.length
 
   return (
@@ -165,43 +97,13 @@ export function EmployeeList({
           <p className="text-sm text-slate-500">
             {filtered.length}/{employees.length} người
             {activeFilterCount > 0 ? ` · ${activeFilterCount} bộ lọc` : ''}
+            <span className="text-slate-400"> · chỉ xem</span>
           </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => onImportSource()}
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            Đồng bộ iq_dotnet_api
-          </button>
-          <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
-            <FileSpreadsheet size={16} />
-            Import Excel
-            <input
-              type="file"
-              accept=".xlsx,.xls,.csv"
-              className="hidden"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) onImportExcel(file)
-                e.target.value = ''
-              }}
-            />
-          </label>
-          <button
-            type="button"
-            onClick={openCreate}
-            className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-3 py-2 text-sm font-semibold text-white hover:bg-sky-700"
-          >
-            <Plus size={16} /> Thêm
-          </button>
         </div>
       </div>
 
-      {/* Search + advanced toggle */}
       <div className="flex flex-wrap items-center gap-2">
-        <div className="relative min-w-[240px] flex-1 max-w-md">
+        <div className="relative min-w-[240px] max-w-md flex-1">
           <Search className="pointer-events-none absolute top-2.5 left-3 text-slate-400" size={18} />
           <input
             value={q}
@@ -247,7 +149,6 @@ export function EmployeeList({
         </div>
       )}
 
-      {/* Active filter chips summary */}
       {(filterTags.length > 0 || filterClasses.length > 0) && (
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-semibold tracking-wide text-slate-400 uppercase">
@@ -293,57 +194,45 @@ export function EmployeeList({
         </div>
       )}
 
-      {creating && (
+      {detail && (
         <div className="rounded-2xl border border-sky-100 bg-sky-50/60 p-4">
-          <h3 className="mb-3 text-sm font-semibold text-slate-800">
-            {editing ? 'Sửa nhân sự' : 'Thêm nhân sự'}
-          </h3>
-          <div className="grid gap-3 md:grid-cols-2">
-            {(
-              [
-                ['name', 'Họ tên'],
-                ['english_name', 'Tên tiếng Anh'],
-                ['email', 'Email'],
-                ['phone', 'SĐT'],
-                ['main_class', 'Lớp chính'],
-                ['role_code', 'Vai trò'],
-              ] as const
-            ).map(([key, label]) => (
-              <label key={key} className="text-sm">
-                <span className="mb-1 block text-slate-600">{label}</span>
-                <input
-                  value={form[key]}
-                  onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none ring-sky-500 focus:ring-2"
-                />
-              </label>
+          <div className="mb-3 flex items-start justify-between gap-3">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-800">{detail.name}</h3>
+              {detail.english_name && (
+                <p className="text-xs text-slate-500">{detail.english_name}</p>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => setDetail(null)}
+              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700"
+            >
+              Đóng
+            </button>
+          </div>
+          <dl className="grid gap-2 text-sm md:grid-cols-2">
+            <div>
+              <dt className="text-xs text-slate-500">Email</dt>
+              <dd className="text-slate-800">{detail.email || '—'}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">SĐT</dt>
+              <dd className="text-slate-800">{detail.phone || '—'}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Lớp chính</dt>
+              <dd className="text-slate-800">{detail.main_class || '—'}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Vai trò</dt>
+              <dd className="text-slate-800">{detail.role_code || '—'}</dd>
+            </div>
+          </dl>
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {(detail.nodes || []).map((n) => (
+              <TagPill key={n.id} label={n.name} color={n.color} />
             ))}
-          </div>
-
-          <div className="mt-4">
-            <TreeTagPicker
-              tree={tree}
-              value={form.node_ids}
-              onChange={(node_ids) => setForm((f) => ({ ...f, node_ids }))}
-              label="Gắn tag phòng ban (theo cây)"
-            />
-          </div>
-
-          <div className="mt-3 flex gap-2">
-            <button
-              type="button"
-              onClick={submit}
-              className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700"
-            >
-              Lưu
-            </button>
-            <button
-              type="button"
-              onClick={() => setCreating(false)}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
-            >
-              Hủy
-            </button>
           </div>
         </div>
       )}
@@ -357,7 +246,6 @@ export function EmployeeList({
                 <th className="px-4 py-3 font-semibold">Lớp</th>
                 <th className="px-4 py-3 font-semibold">Phòng ban / tag</th>
                 <th className="px-4 py-3 font-semibold">Vai trò</th>
-                <th className="px-4 py-3 font-semibold" />
               </tr>
             </thead>
             <tbody>
@@ -366,7 +254,7 @@ export function EmployeeList({
                   <td className="px-4 py-3">
                     <button
                       type="button"
-                      onClick={() => openEdit(emp)}
+                      onClick={() => setDetail(emp)}
                       className="text-left font-semibold text-slate-800 hover:text-sky-700"
                     >
                       {emp.name}
@@ -385,21 +273,11 @@ export function EmployeeList({
                     </div>
                   </td>
                   <td className="px-4 py-3 text-slate-600">{emp.role_code || '—'}</td>
-                  <td className="px-4 py-3 text-right">
-                    <button
-                      type="button"
-                      onClick={() => onDelete(emp.id)}
-                      className="rounded-lg p-2 text-rose-600 hover:bg-rose-50"
-                      aria-label="Xóa"
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </td>
                 </tr>
               ))}
               {!pageItems.length && (
                 <tr>
-                  <td colSpan={5} className="px-4 py-10 text-center text-slate-500">
+                  <td colSpan={4} className="px-4 py-10 text-center text-slate-500">
                     Không có nhân sự khớp bộ lọc
                   </td>
                 </tr>
@@ -408,7 +286,6 @@ export function EmployeeList({
           </table>
         </div>
 
-        {/* Pagination */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 bg-slate-50/80 px-4 py-3">
           <div className="flex items-center gap-2 text-sm text-slate-600">
             <span>

@@ -1,24 +1,60 @@
-# IQ School Org
+# IQ School Org (static)
 
-Hệ thống cây phân tầng quản trị IQ School (React + Mermaid + PostgreSQL).
+Sơ đồ tổ chức IQ School — **frontend tĩnh**, dữ liệu trong `client/public/data/*.json`. Không cần backend / Postgres / đồng bộ iq_system.
 
-## Chạy nhanh
+> Bản full-stack (Express + Postgres + import) nằm ở nhánh **`with-backend`**.
 
-1. Postgres container (đã tạo): `iq-diagram-postgres` port **5433**
-2. Cài dependency: `npm install` và `npm --prefix client install`
-3. Seed + import từ `iq_dotnet_api`: `npm run import:source`
-4. Dev: `npm run dev`
-   - API: http://localhost:5050
-   - UI: http://localhost:5173
+## Chạy local
 
-## Tính năng MVP
+```bash
+npm --prefix client install
+npm run dev
+```
 
-- Sơ đồ org từ draw.io (HĐQT → … → Luồng 1–4 → phòng ban)
-- Click node: thêm node con, thêm nhân sự, sửa/xóa, đổi màu (+ cascade)
-- Hover node: xem nhân sự mà không vẽ tên lên cây
-- Danh sách nhân sự + tag màu nhiều phòng ban + field lớp
-- Import Excel + đồng bộ từ DB `iq_dotnet_api`
+Mở http://localhost:5173
 
-## Excel import
+## Build & xem bản production
 
-Cột gợi ý: `name` / `Họ tên`, `email`, `phone`, `main_class` / `Lớp`, `departments` / `Phòng ban` (nhiều giá trị cách bởi `,`).
+```bash
+npm run build
+npm run preview
+```
+
+Thư mục deploy: `client/dist/` (đã gồm JSON).
+
+## GitHub Pages
+
+1. Push nhánh `main` lên GitHub.
+2. Settings → Pages → Source: **GitHub Actions** hoặc **Deploy from branch** (`/docs` hoặc `gh-pages` từ `client/dist`).
+3. Nếu dùng project site (`https://user.github.io/repo-name/`):
+
+```bash
+# Windows PowerShell
+$env:VITE_BASE="/repo-name/"; npm run build
+```
+
+Hoặc đặt `base: '/repo-name/'` trong `client/vite.config.ts`.
+
+## Cập nhật dữ liệu JSON
+
+Khi cần snapshot mới từ DB (chỉ trên máy có Postgres + nhánh `with-backend` / DB local):
+
+```bash
+# từ nhánh with-backend, hoặc tạm cài pg+dotenv rồi:
+npm install dotenv pg   # nếu chưa có
+npm run export:data
+```
+
+File ghi vào `client/public/data/`:
+
+| File | Nội dung |
+|------|----------|
+| `nodes.json` | Cây + flat org |
+| `employees.json` | Nhân sự + tag node |
+| `schools.json` / `classes.json` / `departments.json` | Meta lọc |
+| `meta.json` | Thời điểm export |
+
+## Lưu ý
+
+- App **chỉ xem** (không sửa node / nhân sự / import).
+- JSON public có thể chứa email/SĐT — chỉ publish repo nội bộ / private nếu cần bảo mật.
