@@ -1,0 +1,1242 @@
+{
+  "applied_count": 125,
+  "uncertain": [
+    {
+      "reason": "Có trong DB nhưng không gắn school Hà Đông",
+      "excel_name": "Lê Thị Hồng Nguyệt",
+      "role": "member",
+      "node": "Hội đồng trường",
+      "candidates": [
+        {
+          "id": "ab6b843a-3b5d-49f3-b7cc-70f0fdc63423",
+          "name": "Lê Thị Hồng Nguyệt",
+          "schools": [
+            3
+          ],
+          "depts": [
+            "Hiệu Trưởng"
+          ],
+          "username": "iq_hd_nguyetle_1981"
+        }
+      ]
+    },
+    {
+      "reason": "Trùng tên trong Hà Đông — chọn đúng người",
+      "excel_name": "Nguyễn Thị Phương",
+      "role": "member",
+      "node": "Tiếng anh",
+      "candidates": [
+        {
+          "id": "f4afed40-a313-4814-8c4d-395def7f43f1",
+          "name": "Nguyễn Thị Phương",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ],
+          "username": "iq_hd_phuongnguyen_1996",
+          "email": null,
+          "main_class": "1A2 - 2026/2027",
+          "extra": {
+            "gvbm_class": "1A2 - 2026/2027",
+            "gvcn_class": null,
+            "mainSchoolId": 1
+          }
+        },
+        {
+          "id": "b2b2492e-aca3-4e6c-b5c8-5fe4a114a474",
+          "name": "Nguyễn Thị Phương",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ],
+          "username": null,
+          "email": null,
+          "main_class": "1A3",
+          "extra": {
+            "gvbm_class": "1N1 - 2026/2027",
+            "gvcn_class": "1A3",
+            "mainSchoolId": 1
+          }
+        }
+      ]
+    },
+    {
+      "reason": "Trùng tên trong Hà Đông — chọn đúng người",
+      "excel_name": "Nguyễn Thùy Linh",
+      "role": "member",
+      "node": "Tiếng anh",
+      "candidates": [
+        {
+          "id": "7f58f57e-bc04-43c3-83e2-ecdf6fee9e90",
+          "name": "Nguyễn Thùy Linh",
+          "depts": [],
+          "username": "iq_hd_linhnt_1996",
+          "email": null,
+          "main_class": "2N1 - 2026/2027",
+          "extra": {
+            "gvbm_class": null,
+            "gvcn_class": "2N1 - 2026/2027",
+            "mainSchoolId": 1
+          }
+        },
+        {
+          "id": "103bc32d-ea4d-4c78-9589-47ba4628f309",
+          "name": "Nguyễn Thùy Linh",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ],
+          "username": null,
+          "email": null,
+          "main_class": "2A3 - 2026/2027",
+          "extra": {
+            "gvbm_class": "2A2 - 2026/2027",
+            "gvcn_class": "2A3 - 2026/2027",
+            "mainSchoolId": 1
+          }
+        }
+      ]
+    },
+    {
+      "reason": "Excel ghi 'Nguyễn Thị Minh 89' — cần xác định đúng người (khác Minh Mỹ thuật?)",
+      "excel_name": "Nguyễn Thị Minh 89",
+      "role": "member",
+      "node": "Đưa đón",
+      "candidates": [
+        {
+          "id": "d0420452-07ff-4394-a05b-a43a7fa2bfbe",
+          "name": "Nguyễn Thị Minh",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ],
+          "username": "iq_hd_ntminh_2026",
+          "main_class": "4A1 - 2026/2027"
+        },
+        {
+          "id": "aecd37c8-d6dc-42fa-ace5-a9fbd353c6e5",
+          "name": "Nguyễn Thị Minh (Mỹ thuật)",
+          "depts": [
+            "Giáo Viên Mỹ Thuật"
+          ],
+          "username": "iq_hd_minhnt_1987",
+          "main_class": "5A1"
+        },
+        {
+          "id": "b9486b56-a225-4027-bf37-07f98fac1047",
+          "name": "Nguyễn Thị Minh Oanh",
+          "depts": [
+            "Giáo Viên Tiếng Anh Tiểu Học"
+          ],
+          "username": "iq_hd_oanhntm_1997",
+          "main_class": "4A2"
+        }
+      ]
+    },
+    {
+      "reason": "Trùng tên trong Hà Đông — chọn đúng người",
+      "excel_name": "Nguyễn Thị Thanh",
+      "role": "member",
+      "node": "Đưa đón",
+      "candidates": [
+        {
+          "id": "d181bc9c-cfa8-4cb4-b85d-aea9a138fbf9",
+          "name": "Nguyễn Thị Thanh",
+          "depts": [
+            "Y Tế"
+          ],
+          "username": "iq_hd_thanhnt_1993",
+          "email": null,
+          "main_class": null,
+          "extra": {
+            "gvbm_class": null,
+            "gvcn_class": null,
+            "mainSchoolId": 1
+          }
+        },
+        {
+          "id": "961462aa-26be-49c7-86ff-59412baf28b0",
+          "name": "Nguyễn Thị Thanh",
+          "depts": [
+            "Bếp"
+          ],
+          "username": "iq_hm_nhannguyen_1994",
+          "email": null,
+          "main_class": null,
+          "extra": {
+            "gvbm_class": null,
+            "gvcn_class": null,
+            "mainSchoolId": 1
+          }
+        }
+      ]
+    },
+    {
+      "reason": "Có trong DB nhưng không gắn school Hà Đông",
+      "excel_name": "Lương Thị Sâm",
+      "role": "member",
+      "node": "Trông muộn",
+      "candidates": [
+        {
+          "id": "ad88c152-d989-4811-a655-05487b24beaa",
+          "name": "Lương Thị Sâm",
+          "schools": [
+            3
+          ],
+          "depts": [],
+          "username": "iq_hm_samlt_1980"
+        }
+      ]
+    },
+    {
+      "reason": "Trùng tên trong Hà Đông — chọn đúng người",
+      "excel_name": "Nguyễn Thị Thanh",
+      "role": "member",
+      "node": "Trông muộn",
+      "candidates": [
+        {
+          "id": "d181bc9c-cfa8-4cb4-b85d-aea9a138fbf9",
+          "name": "Nguyễn Thị Thanh",
+          "depts": [
+            "Y Tế"
+          ],
+          "username": "iq_hd_thanhnt_1993",
+          "email": null,
+          "main_class": null,
+          "extra": {
+            "gvbm_class": null,
+            "gvcn_class": null,
+            "mainSchoolId": 1
+          }
+        },
+        {
+          "id": "961462aa-26be-49c7-86ff-59412baf28b0",
+          "name": "Nguyễn Thị Thanh",
+          "depts": [
+            "Bếp"
+          ],
+          "username": "iq_hm_nhannguyen_1994",
+          "email": null,
+          "main_class": null,
+          "extra": {
+            "gvbm_class": null,
+            "gvcn_class": null,
+            "mainSchoolId": 1
+          }
+        }
+      ]
+    },
+    {
+      "reason": "Có trong DB nhưng không gắn school Hà Đông",
+      "excel_name": "Lê Thị Hồng Nguyệt",
+      "role": "lead",
+      "node": "Công đoàn",
+      "candidates": [
+        {
+          "id": "ab6b843a-3b5d-49f3-b7cc-70f0fdc63423",
+          "name": "Lê Thị Hồng Nguyệt",
+          "schools": [
+            3
+          ],
+          "depts": [
+            "Hiệu Trưởng"
+          ],
+          "username": "iq_hd_nguyetle_1981"
+        }
+      ]
+    }
+  ],
+  "missing_people": [
+    {
+      "excel_name": "Nguyễn Thu Trang",
+      "role": "member",
+      "node": "Tiếng anh",
+      "suggestions": [
+        {
+          "id": "7997f70d-99dd-4116-bf1e-5b137f859f71",
+          "name": "Nguyễn Quỳnh Trang",
+          "depts": [
+            "Giáo Viên Toán Tiểu Học",
+            "Giáo Viên Tin Học"
+          ]
+        },
+        {
+          "id": "aced0741-7d8f-42f2-9aef-69bfb5363c8f",
+          "name": "Nguyễn Thuỳ Linh",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "ba56f8ab-7235-47a8-8e53-61ab2ba7fae7",
+          "name": "Nguyễn Thị Huyền Trang",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "00991c6b-499b-426d-8cb8-320b2378465e",
+          "name": "Nguyễn Thị Hồng Thu",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        },
+        {
+          "id": "aecd37c8-d6dc-42fa-ace5-a9fbd353c6e5",
+          "name": "Nguyễn Thị Minh (Mỹ thuật)",
+          "depts": [
+            "Giáo Viên Mỹ Thuật"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "CÔNG TY TNHH GIÁO DỤC PANNA",
+      "role": "member",
+      "node": "GVNN",
+      "suggestions": []
+    },
+    {
+      "excel_name": "Lã Thị Yến",
+      "role": "member",
+      "node": "Y tế",
+      "suggestions": [
+        {
+          "id": "3b922de3-e536-4e0f-878f-7099c49efb8f",
+          "name": "Nguyễn Thị Hải Yến",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "31732458-7227-4d93-8764-46e12293d049",
+          "name": "Nguyễn Thị Kim Yến",
+          "depts": [
+            "Giáo Viên Tiếng Anh Tiểu Học"
+          ]
+        },
+        {
+          "id": "239993b5-b0d7-4ec7-9001-a046f2047fef",
+          "name": "Đinh Thị Hải Yến",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "Nguyễn Thị Thu Thảo",
+      "role": "lead",
+      "node": "Pháp chế",
+      "suggestions": [
+        {
+          "id": "d7d1c1c3-5570-47a3-9164-88cbd7ecdab0",
+          "name": "Giang Thị Thu Thảo",
+          "depts": [
+            "Giáo Viên Tiếng Anh Tiểu Học"
+          ]
+        },
+        {
+          "id": "00991c6b-499b-426d-8cb8-320b2378465e",
+          "name": "Nguyễn Thị Hồng Thu",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        },
+        {
+          "id": "aecd37c8-d6dc-42fa-ace5-a9fbd353c6e5",
+          "name": "Nguyễn Thị Minh (Mỹ thuật)",
+          "depts": [
+            "Giáo Viên Mỹ Thuật"
+          ]
+        },
+        {
+          "id": "95abb69b-33c3-462d-a474-b9995eacb620",
+          "name": "Nguyễn Thị Thu",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "cd5c57aa-2256-4514-98ed-63eb2d10bfe3",
+          "name": "Nguyễn Thị Thu Hà",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "công ty An Bình",
+      "role": "lead",
+      "node": "Bảo vệ",
+      "suggestions": []
+    },
+    {
+      "excel_name": "Trần Thị Hồng",
+      "role": "lead",
+      "node": "Vệ sinh",
+      "suggestions": [
+        {
+          "id": "00991c6b-499b-426d-8cb8-320b2378465e",
+          "name": "Nguyễn Thị Hồng Thu",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        },
+        {
+          "id": "e04e3108-2855-4722-b839-5f3ed6e6fc65",
+          "name": "Trần Thị Hoa",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "61167677-c7c7-4960-bc43-3cfbe9280999",
+          "name": "Trần Thị Hằng",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        },
+        {
+          "id": "a5782007-78e0-4562-8232-f18d0f1b06ed",
+          "name": "Trần Thị Kim Thiết",
+          "depts": [
+            "Giáo Viên Thể Chất"
+          ]
+        },
+        {
+          "id": "1a600fa6-d6f3-45b2-ae85-e027d3f5ae5b",
+          "name": "Trần Thị Phương Thảo",
+          "depts": [
+            "Giáo Viên Tiếng Anh Tiểu Học"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "Bùi Thị Xuyên",
+      "role": "member",
+      "node": "Vệ sinh",
+      "suggestions": [
+        {
+          "id": "0caa4594-befb-4f62-adf1-34c873565a04",
+          "name": "Bùi Thị Duyên",
+          "depts": [
+            "Giáo Viên Toán Tiểu Học"
+          ]
+        },
+        {
+          "id": "49d0d6ec-c43f-4037-afcf-571d93194e6d",
+          "name": "Bùi Thị Kiều Trang",
+          "depts": []
+        },
+        {
+          "id": "7d67e2ce-e643-492c-9305-05b71d1d0248",
+          "name": "Bùi Thị Xuân",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "Trần Thị Hà",
+      "role": "member",
+      "node": "Vệ sinh",
+      "suggestions": [
+        {
+          "id": "2a8c0ede-b539-42db-9d42-5085c6583089",
+          "name": "Hoàng Thị Thu Hà",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "cd5c57aa-2256-4514-98ed-63eb2d10bfe3",
+          "name": "Nguyễn Thị Thu Hà",
+          "depts": [
+            "Giáo Viên Tiếng Việt Tiểu Học"
+          ]
+        },
+        {
+          "id": "e04e3108-2855-4722-b839-5f3ed6e6fc65",
+          "name": "Trần Thị Hoa",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "61167677-c7c7-4960-bc43-3cfbe9280999",
+          "name": "Trần Thị Hằng",
+          "depts": [
+            "Giáo Viên Mầm Non"
+          ]
+        },
+        {
+          "id": "a5782007-78e0-4562-8232-f18d0f1b06ed",
+          "name": "Trần Thị Kim Thiết",
+          "depts": [
+            "Giáo Viên Thể Chất"
+          ]
+        }
+      ]
+    },
+    {
+      "excel_name": "Nguyễn Thị Ngân",
+      "role": "member",
+      "node": "Vệ sinh",
+      "suggestions": [
+        {
+          "id": "506cbef0-b757-4f12-8104-9203b8e29786",
+          "name": "Nguyễn Thị Bình",
+          "depts": [
+            "Giáo Viên Tiếng Anh Tiểu Học"
+          ]
+        },
+        {
+          "id": "04b54ebb-0ed0-4937-8253-cbd7ab407b31",
+          "name": "Nguyễn Thị Hiền",
+          "depts": [
+            "Kế Toán"
+          ]
+        },
+        {
+          "id": "ba56f8ab-7235-47a8-8e53-61ab2ba7fae7",
+          "name": "Nguyễn Thị Huyền Trang",
+          "depts": [
+            "Giáo Viên Tiếng Anh Mầm Non"
+          ]
+        },
+        {
+          "id": "1b0cf1d6-8e0c-4a56-9efe-1ffd7bf11c04",
+          "name": "Nguyễn Thị Hòa",
+          "depts": [
+            "Kế Toán"
+          ]
+        },
+        {
+          "id": "b0a03db4-eaae-4252-bee4-1a6cf576abd7",
+          "name": "Nguyễn Thị Hường",
+          "depts": [
+            "Bếp"
+          ]
+        }
+      ]
+    }
+  ],
+  "missing_nodes": [
+    {
+      "node": "Hỗ trợ/đợi lớp",
+      "leads": [],
+      "members": [
+        "Bùi Thị Duyên",
+        "TrẦn Kim Thiết",
+        "Nguyễn Thị Minh 89"
+      ]
+    },
+    {
+      "node": "BẾP",
+      "leads": [
+        "Mai Văn Hợp"
+      ],
+      "members": [
+        "Nguyễn Văn Hậu",
+        "Nguyễn Bích Liên",
+        "Nguyễn Thị Thanh",
+        "Nguyễn Thị Hường",
+        "Nguyễn Hà Phương"
+      ]
+    },
+    {
+      "node": "Số hoá",
+      "leads": [
+        "Bùi Công Huy"
+      ],
+      "members": [
+        "Bùi Công Đạt",
+        "Lê Đức Ân",
+        "Nguyễn Dũng Quang mInh"
+      ]
+    },
+    {
+      "node": "Khác",
+      "leads": [],
+      "members": [
+        "Đỗ Thị Thuý",
+        "Nguyễn Yến Nhi"
+      ]
+    }
+  ],
+  "applied_by_node": {
+    "Hội đồng trường": [
+      {
+        "name": "Nguyễn Bá Hùng",
+        "primary": false,
+        "excel": "Nguyễn Bá Hùng"
+      },
+      {
+        "name": "Nguyễn Thị Kiều",
+        "primary": false,
+        "excel": "Nguyễn Thị Kiều"
+      },
+      {
+        "name": "Ngô Thị Huệ",
+        "primary": false,
+        "excel": "Ngô Thị Huệ"
+      },
+      {
+        "name": "Đỗ Thị Trang Nhung",
+        "primary": false,
+        "excel": "Đỗ Thị Trang Nhung"
+      },
+      {
+        "name": "Lưu Thị Tuyết Mai",
+        "primary": false,
+        "excel": "Lưu Thị Tuyết Mai"
+      },
+      {
+        "name": "Nguyễn Thị Tươi",
+        "primary": false,
+        "excel": "Nguyễn Thị Tươi"
+      },
+      {
+        "name": "Nguyễn Thị Hải Yến",
+        "primary": false,
+        "excel": "Nguyễn Thị Hải Yến"
+      }
+    ],
+    "CEO": [
+      {
+        "name": "Nguyễn Bá Hùng",
+        "primary": true,
+        "excel": "Nguyễn Bá Hùng"
+      }
+    ],
+    "Luồng 1": [
+      {
+        "name": "Nguyễn Thị Kiều",
+        "primary": true,
+        "excel": "Nguyễn Thị Kiều"
+      }
+    ],
+    "Tiếng việt": [
+      {
+        "name": "Đỗ Thị Trang Nhung",
+        "primary": true,
+        "excel": "Đỗ Thị Trang Nhung"
+      },
+      {
+        "name": "Lê Thị Nhật Lệ",
+        "primary": true,
+        "excel": "Lê Thị Nhật Lệ"
+      },
+      {
+        "name": "Đinh Thị Hải Yến",
+        "primary": false,
+        "excel": "Đinh Thị Hải Yến"
+      },
+      {
+        "name": "Nguyễn Thị Phương",
+        "primary": false,
+        "excel": "Nguyễn Thị Phương"
+      },
+      {
+        "name": "Nguyễn Thị Phương",
+        "primary": false,
+        "excel": "Nguyễn Thị Phương"
+      },
+      {
+        "name": "Trần Thị Thủy",
+        "primary": false,
+        "excel": "Trần Thị Thủy"
+      },
+      {
+        "name": "Nguyễn Thanh Tuyền",
+        "primary": false,
+        "excel": "Nguyễn Thanh Tuyền"
+      },
+      {
+        "name": "Nguyễn Thùy Linh",
+        "primary": false,
+        "excel": "Nguyễn Thùy Linh"
+      },
+      {
+        "name": "Lê Thị Phương",
+        "primary": false,
+        "excel": "Lê Thị Phương"
+      },
+      {
+        "name": "Nguyễn Thị Mỹ Hạnh",
+        "primary": false,
+        "excel": "Nguyễn Thị Mỹ Hạnh"
+      },
+      {
+        "name": "Nguyễn Ngọc Lan",
+        "primary": false,
+        "excel": "Nguyễn Ngọc Lan"
+      },
+      {
+        "name": "Phùng Bảo Linh",
+        "primary": false,
+        "excel": "Phùng Bảo Linh"
+      },
+      {
+        "name": "Lương Thị Thế",
+        "primary": false,
+        "excel": "Lương Thị Thế"
+      },
+      {
+        "name": "Lê Thị Chung",
+        "primary": false,
+        "excel": "Lê Thị Chung"
+      },
+      {
+        "name": "Trần Thị Hằng",
+        "primary": false,
+        "excel": "Trần Thị Hằng"
+      },
+      {
+        "name": "Tạ Thị Hằng",
+        "primary": false,
+        "excel": "Tạ Thị Hằng"
+      },
+      {
+        "name": "Hoàng Thị Lệ Giang",
+        "primary": false,
+        "excel": "Hoàng Thị Lệ Giang"
+      },
+      {
+        "name": "Nguyễn Thị Lan",
+        "primary": false,
+        "excel": "Nguyễn Thị Lan"
+      },
+      {
+        "name": "Nguyễn Thị Thơm",
+        "primary": false,
+        "excel": "Nguyễn Thị Thơm"
+      },
+      {
+        "name": "Nguyễn Thị Đào",
+        "primary": false,
+        "excel": "Nguyễn Thị Đào"
+      },
+      {
+        "name": "Lộc Thị Huệ",
+        "primary": false,
+        "excel": "Lộc Thị Huệ"
+      },
+      {
+        "name": "Trần Thị Thu Hồng",
+        "primary": false,
+        "excel": "Trần Thị Thu Hồng"
+      },
+      {
+        "name": "Nguyễn Thị Hồng Thu",
+        "primary": false,
+        "excel": "Nguyễn Thị Hồng Thu"
+      },
+      {
+        "name": "Dương Thị Toán",
+        "primary": false,
+        "excel": "Dương Thị Toán"
+      },
+      {
+        "name": "Cao Thu Thùy",
+        "primary": false,
+        "excel": "Cao Thị Thu Thuỳ"
+      }
+    ],
+    "Tiếng anh": [
+      {
+        "name": "Nguyễn Thị Hải Yến",
+        "primary": true,
+        "excel": "Nguyễn Thị Hải Yến"
+      },
+      {
+        "name": "Nguyễn Thị Tươi",
+        "primary": true,
+        "excel": "Nguyễn Thị Tươi"
+      },
+      {
+        "name": "Mẫn Thị Thanh Lịch",
+        "primary": false,
+        "excel": "Mẫn Thị Thanh Lịch"
+      },
+      {
+        "name": "Trịnh Thị Ngọc Ánh",
+        "primary": false,
+        "excel": "Trịnh Thị Ngọc Ánh"
+      },
+      {
+        "name": "Trần Khánh Linh",
+        "primary": false,
+        "excel": "Trần Khánh Linh"
+      },
+      {
+        "name": "Nghiêm Thanh Hương",
+        "primary": false,
+        "excel": "Nghiêm Thanh Hương"
+      },
+      {
+        "name": "Trần Thị Hoa",
+        "primary": false,
+        "excel": "Trần Thị Hoa"
+      },
+      {
+        "name": "Nguyễn Thị Huyền Trang",
+        "primary": false,
+        "excel": "Nguyễn Thị Huyền Trang"
+      },
+      {
+        "name": "Đào Thị Phương",
+        "primary": false,
+        "excel": "Đào Thị Phương"
+      },
+      {
+        "name": "Nguyễn Thị Vân Thúy",
+        "primary": false,
+        "excel": "Nguyễn Thị Vân Thuý"
+      },
+      {
+        "name": "Ninh Thị Lệ Huyền",
+        "primary": false,
+        "excel": "Ninh Thị Lệ Huyền"
+      },
+      {
+        "name": "Nguyễn Thị Thùy Linh",
+        "primary": false,
+        "excel": "Nguyễn Thị Thùy Linh"
+      },
+      {
+        "name": "Lê Thị Liên",
+        "primary": false,
+        "excel": "Lê Thị Liên"
+      },
+      {
+        "name": "Phạm Thị Hương Trà",
+        "primary": false,
+        "excel": "Phạm Thị Hương Trà"
+      },
+      {
+        "name": "Nguyễn Thị Thu",
+        "primary": false,
+        "excel": "Nguyễn Thị Thu"
+      },
+      {
+        "name": "Phạm Thị Hiển",
+        "primary": false,
+        "excel": "Phạm Thị Hiển"
+      },
+      {
+        "name": "Lê Thị Hoà",
+        "primary": false,
+        "excel": "Lê Thị Hòa"
+      },
+      {
+        "name": "Hoàng Thị Thu Hà",
+        "primary": false,
+        "excel": "Hoàng Thị Thu Hà"
+      },
+      {
+        "name": "Nguyễn Thị Minh Oanh",
+        "primary": false,
+        "excel": "Nguyễn Thị Minh Oanh"
+      },
+      {
+        "name": "Đào Thị Huyền",
+        "primary": false,
+        "excel": "Đào Thị Huyền"
+      },
+      {
+        "name": "Bùi Hoàng Thảo Vy",
+        "primary": false,
+        "excel": "Bùi Hoàng Thảo Vy"
+      },
+      {
+        "name": "Lê Huyền Anh",
+        "primary": false,
+        "excel": "Lê Huyền Anh"
+      },
+      {
+        "name": "Nguyễn Thị Bình",
+        "primary": false,
+        "excel": "Nguyễn Thị Bình"
+      },
+      {
+        "name": "Nguyễn Hàn Ly",
+        "primary": false,
+        "excel": "Nguyễn Thị Hàn Ly"
+      },
+      {
+        "name": "Nguyễn Thị Hằng",
+        "primary": false,
+        "excel": "Nguyễn Thị Hằng"
+      },
+      {
+        "name": "Nguyễn Hoàng Linh",
+        "primary": false,
+        "excel": "Nguyễn Hoàng Linh"
+      },
+      {
+        "name": "Bùi Thanh Tuyền",
+        "primary": false,
+        "excel": "Bùi Thanh Tuyền"
+      },
+      {
+        "name": "Đinh Thị Nhung",
+        "primary": false,
+        "excel": "Đinh Thị Nhung"
+      },
+      {
+        "name": "Hoàng Thanh Xuân",
+        "primary": false,
+        "excel": "Hoàng Thanh Xuân"
+      },
+      {
+        "name": "Giang Thị Thu Thảo",
+        "primary": false,
+        "excel": "Giang Thị Thu Thảo"
+      },
+      {
+        "name": "Vũ Thị Thu Hà",
+        "primary": false,
+        "excel": "Vũ Thị Thu Hà"
+      }
+    ],
+    "Toán": [
+      {
+        "name": "Lưu Thị Tuyết Mai",
+        "primary": true,
+        "excel": "Lưu Thị Tuyết Mai"
+      },
+      {
+        "name": "Nguyễn Quỳnh Trang",
+        "primary": false,
+        "excel": "Nguyễn Quỳnh Trang"
+      },
+      {
+        "name": "Nguyễn Thị Nga",
+        "primary": false,
+        "excel": "Nguyễn Thị Nga"
+      },
+      {
+        "name": "Vũ Thị Ngọc Lan",
+        "primary": false,
+        "excel": "Vũ Thị Ngọc Lan"
+      },
+      {
+        "name": "Nguyễn Thị Thu Trà",
+        "primary": false,
+        "excel": "Nguyễn Thị Thu Trà"
+      },
+      {
+        "name": "Trần Thị Thu Duyên",
+        "primary": false,
+        "excel": "Trần Thị Thu Duyên"
+      },
+      {
+        "name": "Đỗ Thị Hường",
+        "primary": false,
+        "excel": "Đỗ Thị Hường"
+      }
+    ],
+    "Tiếng trung": [
+      {
+        "name": "Nguyễn Thị Lan Anh",
+        "primary": true,
+        "excel": "Nguyễn Thị Lan Anh"
+      },
+      {
+        "name": "Phạm Văn Đang",
+        "primary": false,
+        "excel": "Phạm Văn Đang"
+      },
+      {
+        "name": "Tào Thị Trang",
+        "primary": false,
+        "excel": "Tào Thị Trang"
+      },
+      {
+        "name": "Bùi Thị Kiều Trang",
+        "primary": false,
+        "excel": "Bùi Thị Kiều Trang"
+      },
+      {
+        "name": "Hoàng Hà Phương",
+        "primary": false,
+        "excel": "Hoàng Hà Phương"
+      }
+    ],
+    "Năng Khiếu": [
+      {
+        "name": "Đỗ Thị Thanh Hải",
+        "primary": false,
+        "excel": "Đỗ Thị Thanh Hải"
+      },
+      {
+        "name": "Nguyễn Cường Quốc",
+        "primary": false,
+        "excel": "Nguyễn Cường Quốc"
+      },
+      {
+        "name": "Chu Thị Thanh",
+        "primary": false,
+        "excel": "Chu Thị Thanh"
+      },
+      {
+        "name": "Dương Thị Tâm",
+        "primary": false,
+        "excel": "Dương Thị Tâm"
+      },
+      {
+        "name": "Nguyễn Thị Minh (Mỹ thuật)",
+        "primary": false,
+        "excel": "Nguyễn Thị Minh"
+      }
+    ],
+    "GVNN": [
+      {
+        "name": "James",
+        "primary": false,
+        "excel": "James"
+      },
+      {
+        "name": "Jermielyn (Kai)",
+        "primary": false,
+        "excel": "Jermielyn"
+      },
+      {
+        "name": "Emma",
+        "primary": false,
+        "excel": "Emma"
+      },
+      {
+        "name": "Paul Kutin",
+        "primary": false,
+        "excel": "Paul Kutin"
+      },
+      {
+        "name": "Ryan",
+        "primary": false,
+        "excel": "Ryan"
+      },
+      {
+        "name": "Joe",
+        "primary": false,
+        "excel": "Joe"
+      }
+    ],
+    "CLB": [
+      {
+        "name": "Nguyễn Thị Minh (Mỹ thuật)",
+        "primary": false,
+        "excel": "Nguyễn Thị Minh"
+      },
+      {
+        "name": "Đỗ Thị Thanh Hải",
+        "primary": false,
+        "excel": "Đỗ Thị Thanh Hải"
+      },
+      {
+        "name": "Dương Thị Tâm",
+        "primary": false,
+        "excel": "Dương Thị Tâm"
+      },
+      {
+        "name": "Nguyễn Cường Quốc",
+        "primary": false,
+        "excel": "Nguyễn Cường Quốc"
+      },
+      {
+        "name": "Chu Thị Thanh",
+        "primary": false,
+        "excel": "Chu Thị Thanh"
+      },
+      {
+        "name": "Phạm Văn Đang",
+        "primary": false,
+        "excel": "Phạm Văn Đang"
+      },
+      {
+        "name": "Nguyễn Thị Lan Anh",
+        "primary": false,
+        "excel": "Nguyễn Thị Lan Anh"
+      },
+      {
+        "name": "Bùi Thị Kiều Trang",
+        "primary": false,
+        "excel": "Bùi Thị Kiều Trang"
+      }
+    ],
+    "Đưa đón": [
+      {
+        "name": "Nguyễn Thị Minh (Mỹ thuật)",
+        "primary": true,
+        "excel": "Nguyễn Thị Minh"
+      },
+      {
+        "name": "Nguyễn Bích Liên",
+        "primary": false,
+        "excel": "Nguyễn Bích Liên"
+      },
+      {
+        "name": "Trần Thị Kim Thiết",
+        "primary": false,
+        "excel": "TrẦn Kim Thiết"
+      }
+    ],
+    "Trông muộn": [
+      {
+        "name": "Nguyễn Thị Thơm",
+        "primary": false,
+        "excel": "Nguyễn Thị Thơm"
+      }
+    ],
+    "Sự kiện dã ngoại": [
+      {
+        "name": "Nguyễn Thị Minh (Mỹ thuật)",
+        "primary": false,
+        "excel": "Nguyễn Thị Minh"
+      },
+      {
+        "name": "Chu Thị Thanh",
+        "primary": false,
+        "excel": "Chu Thị Thanh"
+      },
+      {
+        "name": "Ngô Thị Huệ",
+        "primary": false,
+        "excel": "Ngô Thị Huệ"
+      },
+      {
+        "name": "Đỗ Thị Thanh Hải",
+        "primary": false,
+        "excel": "Đỗ Thị Thanh Hải"
+      }
+    ],
+    "Dự án": [
+      {
+        "name": "Lê Thị Nhật Lệ",
+        "primary": false,
+        "excel": "Lê Thị Nhật Lệ"
+      }
+    ],
+    "Y tế": [
+      {
+        "name": "Nguyễn Thị Thanh",
+        "primary": false,
+        "excel": "Nguyễn Thị Thanh"
+      }
+    ],
+    "Quan hệ khách hàng": [
+      {
+        "name": "Nguyễn Thị Kiều",
+        "primary": true,
+        "excel": "Nguyễn Thị Kiều"
+      }
+    ],
+    "tư vấn tuyển sinh": [
+      {
+        "name": "Nguyễn Thị Kiều",
+        "primary": true,
+        "excel": "Nguyễn Thị Kiều"
+      },
+      {
+        "name": "Đàm Ngọc Ánh",
+        "primary": false,
+        "excel": "Đàm Ngọc Ánh"
+      }
+    ],
+    "Marketing": [
+      {
+        "name": "Trần Trường Sơn",
+        "primary": true,
+        "excel": "Trần Trường Sơn"
+      }
+    ],
+    "Content": [
+      {
+        "name": "Đàm Ngọc Ánh",
+        "primary": false,
+        "excel": "Đàm Ngọc Ánh"
+      },
+      {
+        "name": "Chu Thị Thanh",
+        "primary": false,
+        "excel": "Chu Thị Thanh"
+      }
+    ],
+    "Hội thảo": [
+      {
+        "name": "Nguyễn Thị Kiều",
+        "primary": false,
+        "excel": "Nguyễn Thị Kiều"
+      },
+      {
+        "name": "Trần Trường Sơn",
+        "primary": false,
+        "excel": "Trần Trường Sơn"
+      },
+      {
+        "name": "Lê Thị Nhật Lệ",
+        "primary": false,
+        "excel": "Lê Thị Nhật Lệ"
+      },
+      {
+        "name": "Nguyễn Thị Minh (Mỹ thuật)",
+        "primary": false,
+        "excel": "Nguyễn Thị Minh"
+      },
+      {
+        "name": "Ngô Thị Huệ",
+        "primary": false,
+        "excel": "Ngô Thị Huệ"
+      }
+    ],
+    "Luồng 4": [
+      {
+        "name": "Ngô Thị Huệ",
+        "primary": true,
+        "excel": "Ngô Thị Huệ"
+      }
+    ],
+    "Kế toán": [
+      {
+        "name": "Nguyễn Thị Hằng",
+        "primary": true,
+        "excel": "Nguyễn Thị Hằng"
+      },
+      {
+        "name": "Nguyễn Thị Hòa",
+        "primary": false,
+        "excel": "Nguyễn Thị Hoà"
+      },
+      {
+        "name": "Phạm Thị Luyên",
+        "primary": false,
+        "excel": "Phạm Thị Luyên"
+      },
+      {
+        "name": "Nguyễn Thị Hiền",
+        "primary": false,
+        "excel": "Nguyễn Thị Hiền"
+      },
+      {
+        "name": "Đặng Việt Anh",
+        "primary": false,
+        "excel": "Đặng Việt Anh"
+      }
+    ],
+    "IT": [
+      {
+        "name": "Lê Ngọc Vân",
+        "primary": true,
+        "excel": "Lê Ngọc Vân"
+      }
+    ],
+    "Bảo trì": [
+      {
+        "name": "Nguyễn Viết Khuyên",
+        "primary": true,
+        "excel": "Nguyễn Viết Khuyên"
+      }
+    ]
+  }
+}
