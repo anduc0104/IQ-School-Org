@@ -54,6 +54,18 @@ File ghi vào `client/public/data/`:
 | `schools.json` / `classes.json` / `departments.json` | Meta lọc |
 | `meta.json` | Thời điểm export |
 
+## Thao tác sơ đồ (giữ Ctrl)
+
+Trên tab **Sơ đồ**:
+
+| Phím | Việc làm |
+|------|----------|
+| **Ctrl** + lăn chuột | Phóng to / thu nhỏ về phía con trỏ |
+| **Ctrl** + kéo nền | Di chuyển toàn bộ sơ đồ (không mất focus node) |
+| **Esc** | Thoát focus node / reset view |
+
+Không giữ Ctrl: cuộn bình thường trong danh sách nhân sự / card. Hướng dẫn cũng hiện góc dưới trái khung sơ đồ.
+
 ## Lưu ý
 
 - App **chỉ xem** (không sửa node / nhân sự / import).

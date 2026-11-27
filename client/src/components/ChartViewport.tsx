@@ -335,11 +335,36 @@ export const ChartViewport = forwardRef<ChartViewportHandle, Props>(function Cha
           </div>
         </div>
 
-        {fullscreen && (
-          <div className="pointer-events-none absolute bottom-3 left-3 z-20 flex items-center gap-1.5 rounded-lg bg-slate-900/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
-            <Expand size={12} /> Ctrl+scroll zoom · Ctrl+kéo nền · Esc thoát focus
+        <div
+          className={`pointer-events-none absolute z-20 max-w-[min(100%-1.5rem,28rem)] rounded-xl border border-slate-200/80 bg-white/95 px-3 py-2 text-[11px] leading-snug text-slate-600 shadow-md backdrop-blur ${
+            fullscreen ? 'bottom-3 left-3' : 'bottom-2 left-2'
+          }`}
+        >
+          <div className="mb-1 flex items-center gap-1.5 text-[11px] font-semibold text-slate-800">
+            <Expand size={12} className="text-sky-600" />
+            Thao tác sơ đồ
           </div>
-        )}
+          <ul className="space-y-0.5">
+            <li>
+              <kbd className="rounded border border-slate-200 bg-slate-50 px-1 py-px font-mono text-[10px] font-semibold text-slate-700">
+                Ctrl
+              </kbd>{' '}
+              + lăn chuột — phóng to / thu nhỏ (về phía con trỏ)
+            </li>
+            <li>
+              <kbd className="rounded border border-slate-200 bg-slate-50 px-1 py-px font-mono text-[10px] font-semibold text-slate-700">
+                Ctrl
+              </kbd>{' '}
+              + kéo nền — di chuyển sơ đồ (không mất focus)
+            </li>
+            <li>
+              <kbd className="rounded border border-slate-200 bg-slate-50 px-1 py-px font-mono text-[10px] font-semibold text-slate-700">
+                Esc
+              </kbd>{' '}
+              — thoát focus node
+            </li>
+          </ul>
+        </div>
       </div>
     </ChartViewContext.Provider>
   )

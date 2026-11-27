@@ -590,18 +590,18 @@
     },
     {
       "id": "30170f76-21b8-4928-9e4d-a84648c78165",
-      "parent_id": "bbe431ae-ca00-4bb1-b0b2-6c07c6e33367",
+      "parent_id": "75364c0b-066c-45ff-b5c0-cf56220f7e73",
       "name": "Hỗ trợ/đợi lớp",
       "slug": null,
-      "color": "#8B5CF6",
+      "color": "#3B82F6",
       "level": 4,
-      "sort_order": 8,
+      "sort_order": 6,
       "node_type": "department",
       "show_members_on_tree": false,
       "source_department_ids": [],
       "notes": null,
       "created_at": "2026-11-26T09:02:42.680Z",
-      "updated_at": "2026-11-26T09:02:42.680Z",
+      "updated_at": "2026-11-27T07:51:51.882Z",
       "member_count": 3
     },
     {
@@ -811,6 +811,23 @@
                       "created_at": "2026-11-26T03:43:42.271Z",
                       "updated_at": "2026-11-26T09:35:04.456Z",
                       "member_count": 6,
+                      "children": []
+                    },
+                    {
+                      "id": "30170f76-21b8-4928-9e4d-a84648c78165",
+                      "parent_id": "75364c0b-066c-45ff-b5c0-cf56220f7e73",
+                      "name": "Hỗ trợ/đợi lớp",
+                      "slug": null,
+                      "color": "#3B82F6",
+                      "level": 4,
+                      "sort_order": 6,
+                      "node_type": "department",
+                      "show_members_on_tree": false,
+                      "source_department_ids": [],
+                      "notes": null,
+                      "created_at": "2026-11-26T09:02:42.680Z",
+                      "updated_at": "2026-11-27T07:51:51.882Z",
+                      "member_count": 3,
                       "children": []
                     }
                   ]
@@ -1241,23 +1258,6 @@
                       "created_at": "2026-11-26T09:02:42.680Z",
                       "updated_at": "2026-11-26T09:02:42.680Z",
                       "member_count": 6,
-                      "children": []
-                    },
-                    {
-                      "id": "30170f76-21b8-4928-9e4d-a84648c78165",
-                      "parent_id": "bbe431ae-ca00-4bb1-b0b2-6c07c6e33367",
-                      "name": "Hỗ trợ/đợi lớp",
-                      "slug": null,
-                      "color": "#8B5CF6",
-                      "level": 4,
-                      "sort_order": 8,
-                      "node_type": "department",
-                      "show_members_on_tree": false,
-                      "source_department_ids": [],
-                      "notes": null,
-                      "created_at": "2026-11-26T09:02:42.680Z",
-                      "updated_at": "2026-11-26T09:02:42.680Z",
-                      "member_count": 3,
                       "children": []
                     },
                     {

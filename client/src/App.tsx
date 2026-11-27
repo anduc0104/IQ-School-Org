@@ -199,6 +199,15 @@ export default function App() {
                       {c.label}
                     </span>
                   ))}
+                  <span
+                    className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-[11px] text-slate-500 lg:inline-flex"
+                    title="Giữ Ctrl khi zoom hoặc kéo nền sơ đồ"
+                  >
+                    <kbd className="rounded border border-slate-200 bg-slate-50 px-1 py-px font-mono text-[10px] font-semibold text-slate-700">
+                      Ctrl
+                    </kbd>
+                    + lăn = zoom · + kéo = di chuyển
+                  </span>
                   <div className="ml-auto">
                     <button
                       type="button"
